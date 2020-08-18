@@ -1,5 +1,5 @@
 /**
- * Serto Mobile App
+ * Persol DID Mobile App
  *
  */
 import React from "react";

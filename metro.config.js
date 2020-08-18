@@ -1,5 +1,5 @@
 /**
- * Serto Mobile App
+ * Persol Mobile App
  *
  */
 
@@ -9,8 +9,8 @@ module.exports = {
       transform: {
         babelTransformerPath: require.resolve('react-native-typescript-transformer'),
         experimentalImportSupport: false,
-        inlineRequires: false,
-      },
-    }),
-  },
-};
+        inlineRequires: false
+      }
+    })
+  }
+}

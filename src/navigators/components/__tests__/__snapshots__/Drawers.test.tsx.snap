@@ -113,7 +113,7 @@ exports[`Navigation renders right drawer correctly 1`] = `
               }
             }
           >
-            Serto User
+            Persol User
           </Text>
           <View
             pointerEvents="auto"

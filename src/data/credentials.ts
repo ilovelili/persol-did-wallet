@@ -100,15 +100,15 @@ export const selectiveDisclosureRequest = {
   ]
 }
 
-export const sertoVerifiableCredential = {
-  iss: 'Serto Identity Platform',
+export const persolVerifiableCredential = {
+  iss: 'Persol Identity Platform',
   sub: 'did:ethr:0xf3beac30c498d9e26865f34fcaa57dbb935b0d74',
-  type: 'Serto ID',
+  type: 'Persol ID',
   iat: 1562769371,
   exp: getTime(endOfTomorrow()),
   revoked: false,
   claim: {
-    'Serto ID': {
+    'Persol ID': {
       name: 'Sarah Adamson',
       dateOfBirth: '22-01-75',
       country: 'USA',

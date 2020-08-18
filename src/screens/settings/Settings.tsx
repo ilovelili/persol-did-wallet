@@ -1,5 +1,5 @@
 /**
- * Serto Mobile App
+ * Persol DID Mobile App
  *
  */
 import * as React from "react";
@@ -75,7 +75,7 @@ const Settings: React.FC<NavigationStackScreenProps> = ({ navigation }) => {
               />
             }
           >
-            {i18n.language === "en" ? t("English") : t("Spanish")}
+            {i18n.language === "en" ? t("English") : t("Japanese")}
           </ListItem>
         </Section>
         <Section title={"Theme"}>

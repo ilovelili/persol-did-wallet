@@ -7,7 +7,6 @@ import {
   Banner,
   RequestItem,
   Toaster,
-  Typings,
   Indicator,
   Text
 } from "@kancha/kancha-ui";
@@ -15,8 +14,7 @@ import { NavigationStackScreenProps } from "react-navigation-stack";
 import { Colors } from "../../theme";
 import { useMutation } from "react-apollo";
 import { SIGN_VP, SEND_JWT_MUTATION } from "../../lib/graphql/queries";
-import { ActivityIndicator, ActivityIndicatorBase } from "react-native";
-import navigationService from "Serto/src/navigators/navigationService";
+import { ActivityIndicator } from "react-native";
 
 // tslint:disable-next-line:no-var-requires
 const bannerImage = require("../../assets/images/abstract-blurred-gradient.jpg");

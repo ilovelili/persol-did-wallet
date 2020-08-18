@@ -12,14 +12,14 @@ import {
   act
 } from "react-native-testing-library";
 
-const sertoVerifiableCredential = {
-  iss: "Serto Identity Platform",
+const persolVerifiableCredential = {
+  iss: "Persol Identity Platform",
   sub: "did:ethr:0xf3beac30c498d9e26865f34fcaa57dbb935b0d74",
   iat: 1562769371,
   exp: 1579478400,
   hash: "testHash",
   claim: {
-    "Serto ID": {
+    "Persol ID": {
       name: "Sarah Adamson",
       dateOfBirth: "22-01-75",
       country: "USA",
@@ -55,7 +55,7 @@ describe("Credential", () => {
       navigate: jest.fn(),
       getParam: jest
         .fn()
-        .mockReturnValue({ ...sertoVerifiableCredential, type: "Some VC" }),
+        .mockReturnValue({ ...persolVerifiableCredential, type: "Some VC" }),
       setParams: jest.fn(),
       state: {
         params: {
@@ -89,7 +89,7 @@ describe("Credential", () => {
       navigate: jest.fn(),
       getParam: jest
         .fn()
-        .mockReturnValue({ ...sertoVerifiableCredential, type: "Some VC" }),
+        .mockReturnValue({ ...persolVerifiableCredential, type: "Some VC" }),
       setParams: jest.fn(),
       state: {
         params: {
@@ -117,7 +117,7 @@ describe("Credential", () => {
       navigate: jest.fn(),
       getParam: jest
         .fn()
-        .mockReturnValue({ ...sertoVerifiableCredential, type: "Some VC" }),
+        .mockReturnValue({ ...persolVerifiableCredential, type: "Some VC" }),
       setParams: jest.fn(),
       state: {
         params: {
@@ -146,7 +146,7 @@ describe("Credential", () => {
       navigate: jest.fn(),
       getParam: jest
         .fn()
-        .mockReturnValue({ ...sertoVerifiableCredential, type: "Some VC" }),
+        .mockReturnValue({ ...persolVerifiableCredential, type: "Some VC" }),
       setParams: jest.fn(),
       dismiss: jest.fn(),
       state: {

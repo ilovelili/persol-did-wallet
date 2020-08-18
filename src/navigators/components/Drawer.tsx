@@ -41,7 +41,7 @@ const Drawer: React.FC<DrawerProps> = props => {
           />
           <Container paddingLeft={10}>
             <Text bold={true} type={Constants.TextTypes.H3}>
-              Serto User
+              Persol User
             </Text>
             <Container marginTop={3}>
               <Text type={Constants.TextTypes.SubTitle}>

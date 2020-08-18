@@ -13,8 +13,8 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "Serto/*": ["./*"],
-      "serto-graph": ["./lib/serto-graph"]
+      "Persol/*": ["./*"],
+      "persol-graph": ["./lib/persol-graph"]
     }
   },
   "types": ["jest"],

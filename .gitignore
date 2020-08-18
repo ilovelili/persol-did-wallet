@@ -71,7 +71,7 @@ test-results/
 test-reports/
 
 codepush-privatekey.pem
-Serto.app.dSYM.zip
+Persol.app.dSYM.zip
 
 #sentry.properties
 .env.production

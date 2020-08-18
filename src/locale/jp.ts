@@ -1,15 +1,14 @@
 export default {
   translation: {
-    Home: 'Casa',
-    Settings: 'Ajustes',
-    'Welcome to Serto': 'Bienvenido a Serto',
-    change: 'Alternar idioma',
-    Configuration: 'Configuración',
-    Environment: 'Entorno',
-    Signer: 'Firmante',
-    English: 'Inglesa',
-    Spanish: 'Española',
-    CrashReporting: 'Informes de colisión',
-    Connections: 'Conexiones'
+    Home: 'ホーム',
+    Settings: '設定',
+    change: '変更',
+    Configuration: '設置',
+    Environment: '環境設定',
+    Signer: 'サイナー',
+    English: '英語',
+    Japanese: '日本語',
+    CrashReporting: 'クラッシュレポート',
+    Connections: '接続'
   }
 }

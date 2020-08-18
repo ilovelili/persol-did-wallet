@@ -1,0 +1,274 @@
+{
+  "name": "daf-mobile",
+  "description": "Native mobile client for DAF",
+  "version": "1.38.0",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest --verbose --coverage",
+    "format": "prettier --write \"./src/**/*.{jsx,ts,tsx}\" && git status",
+    "coverage": "jest --coverage",
+    "test:ios:release": "detox build -c ios.sim.release && detox test -c ios.sim.release --cleanup",
+    "test:ios:debug": "detox build -c ios.sim.debug && detox test -c ios.sim.debug",
+    "package-android": "mkdir -p android/app/build/jsbundle/assets/ && mkdir -p android/app/build/jsbundle/res && node node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.js --bundle-output android/app/build/jsbundle/assets/index.android.bundle --assets-dest android/app/build/jsbundle/res",
+    "release": "semantic-release",
+    "postversion": "react-native-version --never-amend",
+    "update-daf@beta": "yarn add daf-core@beta daf-did-comm@beta daf-ethr-did@beta daf-did-jwt@beta daf-selective-disclosure@beta daf-w3c@beta daf-url@beta daf-react-native-libsodium@beta daf-resolver@beta",
+    "update-daf": "yarn add daf-core daf-did-comm daf-ethr-did daf-did-jwt daf-selective-disclosure daf-w3c daf-url daf-react-native-libsodium",
+    "update-local-daf": "yarn add ../daf/packages/daf-core ../daf/packages/daf-data-store ../daf/packages/daf-did-comm ../daf/packages/daf-ethr-did ../daf/packages/daf-debug ../daf/packages/daf-did-jwt ../daf/packages/daf-selective-disclosure ../daf/packages/daf-trust-graph ../daf/packages/daf-w3c ../daf/packages/daf-url ../daf/packages/daf-react-native-libsodium",
+    "postinstall": "rn-nodeify --install assert,buffer,process,crypto,stream,vm --hack --yarn"
+  },
+  "dependencies": {
+    "@apollo/react-hooks": "^3.1.1",
+    "@kancha/kancha-ui": "^1.0.0-beta.50",
+    "@react-native-community/async-storage": "^1.8.0",
+    "@react-native-community/masked-view": "^0.1.10",
+    "@segment/analytics-react-native": "^1.1.0-beta.2",
+    "@sentry/react-native": "^1.0.4",
+    "@types/debug": "^4.1.5",
+    "@types/lodash.merge": "^4.6.6",
+    "@walletconnect/react-native": "^1.0.0-beta.47",
+    "add": "^2.0.6",
+    "apollo-cache-inmemory": "^1.6.3",
+    "apollo-cache-persist": "^0.1.1",
+    "apollo-client": "^2.6.4",
+    "apollo-link": "^1.2.13",
+    "apollo-link-context": "^1.0.19",
+    "apollo-link-error": "^1.1.12",
+    "apollo-link-http": "^1.5.16",
+    "apollo-link-logger": "^1.2.3",
+    "apollo-link-schema": "^1.2.4",
+    "apollo-link-ws": "^1.0.19",
+    "assert": "^1.1.1",
+    "blakejs": "^1.1.0",
+    "buffer": "^5.2.1",
+    "daf-core": "^5.6.5",
+    "daf-did-comm": "^5.6.5",
+    "daf-did-jwt": "^5.6.5",
+    "daf-ethr-did": "^5.6.5",
+    "daf-react-native-libsodium": "^5.6.5",
+    "daf-resolver": "^4.1.0",
+    "daf-selective-disclosure": "^5.6.5",
+    "daf-url": "^5.6.5",
+    "daf-w3c": "^5.6.5",
+    "debug": "^4.1.1",
+    "deepmerge": "^4.2.2",
+    "did-jwt": "^3.0.0",
+    "did-jwt-vc": "^0.1.2",
+    "did-resolver": "^1.1.0",
+    "ethr-did-resolver": "2.1.0",
+    "faker": "^4.1.0",
+    "graphql": "^14.3.1",
+    "graphql-tag": "^2.10.1",
+    "graphql-tools": "^4.0.5",
+    "https-did-resolver": "^0.1.0",
+    "i18next": "^17.2.0",
+    "jest-junit": "^6.3.0",
+    "lodash.merge": "^4.6.2",
+    "moment": "^2.24.0",
+    "nacl-did": "^1.0.0",
+    "process": "^0.11.0",
+    "pubsub-js": "^1.7.0",
+    "react": "16.11.0",
+    "react-apollo": "3.0.1",
+    "react-i18next": "^10.13.1",
+    "react-native": "0.62.2",
+    "react-native-camera": "^3.6.0",
+    "react-native-chart-kit": "^3.10.0",
+    "react-native-config": "^1.2.1",
+    "react-native-crypto": "^2.2.0",
+    "react-native-gesture-handler": "^1.4.1",
+    "react-native-localize": "^1.1.4",
+    "react-native-randombytes": "^3.5.3",
+    "react-native-reanimated": "^1.3.0",
+    "react-native-safe-area-context": "^3.0.2",
+    "react-native-screens": "^2.0.0-alpha.8",
+    "react-native-sodium": "^0.3.6",
+    "react-native-sqlite-storage": "^5.0.0",
+    "react-native-svg": "^9.12.0",
+    "react-native-swiper": "^1.5.14",
+    "react-native-vector-icons": "^6.6.0",
+    "react-navigation": "^4.3.9",
+    "react-navigation-drawer": "^2.4.13",
+    "react-navigation-header-buttons": "^3.0.3",
+    "react-navigation-hooks": "^1.0.1",
+    "react-navigation-stack": "^2.7.0",
+    "react-navigation-tabs": "^2.8.13",
+    "readable-stream": "1.0.33",
+    "reanimated-bottom-sheet": "^1.0.0-alpha.14",
+    "rn-nodeify": "^10.2.0",
+    "sql-bricks-sqlite": "^0.1.0",
+    "stream-browserify": "^1.0.0",
+    "subscriptions-transport-ws": "^0.9.16",
+    "supports-color": "^7.1.0",
+    "typeorm": "^0.2.24",
+    "uport-did-resolver": "^0.0.7",
+    "url-parse": "^1.4.7",
+    "vm-browserify": "0.0.4",
+    "web-did-resolver": "^1.2.0",
+    "yarn": "^1.22.0"
+  },
+  "devDependencies": {
+    "@apollo/react-testing": "^3.1.1",
+    "@babel/core": "^7.6.2",
+    "@babel/runtime": "^7.6.2",
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@semantic-release/git": "^7.0.16",
+    "@types/jest": "^24.0.18",
+    "@types/react": "^16.8.13",
+    "@types/react-native": "^0.57.46",
+    "@types/react-native-sqlite-storage": "^3.3.1",
+    "@types/react-test-renderer": "^16.8.1",
+    "@types/url-parse": "^1.4.3",
+    "@types/ws": "^6.0.3",
+    "babel-jest": "^24.9.0",
+    "cross-fetch": "^3.0.4",
+    "detox": "^15.1.4",
+    "hermes-engine": "^0.2.1",
+    "husky": "^1.3.1",
+    "jest": "^24.9.0",
+    "jest-html-reporter": "^2.5.0",
+    "jest-static-stubs": "^0.0.1",
+    "metro-react-native-babel-preset": "^0.58.0",
+    "mock-async-storage": "^2.2.0",
+    "prettier": "^1.17.0",
+    "pretty-quick": "^1.10.0",
+    "react-dom": "^16.8.6",
+    "react-native-testing-library": "^1.11.1",
+    "react-native-typescript-transformer": "^1.2.12",
+    "react-native-version": "^3.1.0",
+    "react-test-renderer": "16.11.0",
+    "semantic-release": "^15.13.24",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.16.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.9.5",
+    "ws": "^7.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "android.js",
+      "ios.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?@kancha/kancha-ui|react-native|react-navigation|@react-navigation/.*))"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "transform": {
+      "^.+\\.(js)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testMatch": [
+      "**/__tests__/*.+(ts|tsx|js|jsx)"
+    ],
+    "modulePaths": [
+      "<rootDir>"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.jest.json",
+        "diagnostics": false
+      }
+    },
+    "setupFiles": [
+      "./node_modules/react-native-gesture-handler/jestSetup.js",
+      "./jestSetup.js"
+    ],
+    "testEnvironment": "node",
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "reporters": [
+      "default",
+      "jest-junit",
+      [
+        "./node_modules/jest-html-reporter",
+        {
+          "pageTitle": "Test Report",
+          "outputPath": "./test-reports/jest-report.html"
+        }
+      ]
+    ]
+  },
+  "jest-junit": {
+    "outputDirectory": "./test-results/jest/",
+    "outputName": "results.xml"
+  },
+  "detox": {
+    "test-runner": "jest",
+    "configurations": {
+      "ios.sim.debug": {
+        "binaryPath": "ios/DerivedData/DafMobile/Build/Products/Debug-iphonesimulator/DafMobile.app",
+        "build": "xcodebuild -workspace ios/DafMobile.xcworkspace -scheme DafMobile -configuration Debug -sdk iphonesimulator -derivedDataPath ios/DerivedData/DafMobile -UseModernBuildSystem=NO",
+        "type": "ios.simulator",
+        "name": "iPhone X"
+      },
+      "ios.sim.release": {
+        "binaryPath": "ios/DerivedData/DafMobile/Build/Products/Release-iphonesimulator/DafMobile.app",
+        "build": "xcodebuild -workspace ios/DafMobile.xcworkspace -scheme DafMobile -configuration Release -sdk iphonesimulator -derivedDataPath ios/DerivedData/DafMobile -UseModernBuildSystem=NO",
+        "type": "ios.simulator",
+        "name": "iPhone X"
+      }
+    }
+  },
+  "release": {
+    "branch": "master",
+    "npmPublish": false,
+    "ci": true,
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "ios/DafMobile/Info.plist",
+            "ios/DafMobile.xcodeproj/project.pbxproj",
+            "android/app/build.gradle",
+            "package.json"
+          ],
+          "message": "chore(release): :rocket: New version ${nextRelease.version} \n\n${nextRelease.notes}"
+        }
+      ],
+      "@semantic-release/github"
+    ]
+  },
+  "react-native": {
+    "crypto": "react-native-crypto",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify",
+    "vm": "vm-browserify"
+  },
+  "browser": {
+    "crypto": "react-native-crypto",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify",
+    "vm": "vm-browserify"
+  }
+}

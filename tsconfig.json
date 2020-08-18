@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "es2015",
+    "importHelpers": true,
+    "lib": ["es2017"],
+    "jsx": "react-native",
+    "noEmit": true,
+    "strict": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "Serto/*": ["./*"],
+      "serto-graph": ["./lib/serto-graph"]
+    }
+  },
+  "types": ["jest"],
+  "include": ["./src/**/*", "@types"],
+  "exclude": ["node_modules"]
+}

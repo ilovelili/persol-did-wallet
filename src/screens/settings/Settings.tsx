@@ -68,9 +68,9 @@ const Settings: React.FC<NavigationStackScreenProps> = ({ navigation }) => {
             iconLeft={
               <Switch
                 testID={"LANGUAGE_SWITCH_BTN"}
-                value={i18n.language === "es"}
+                value={i18n.language === "jp"}
                 onValueChange={() =>
-                  i18n.changeLanguage(i18n.language === "es" ? "en" : "es")
+                  i18n.changeLanguage(i18n.language === "jp" ? "en" : "jp")
                 }
               />
             }

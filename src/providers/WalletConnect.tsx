@@ -53,7 +53,7 @@ export const WalletConnectProvider = (props: any) => {
     // Wait for push token
     const nativeOptions = {
       clientMeta: {
-        description: "WalletConnect Demo App",
+        description: "Persol WalletConnect",
         url: "https://walletconnect.org",
         icons: ["https://walletconnect.org/walletconnect-logo.png"],
         name: "WalletConnect",

@@ -138,7 +138,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.dafmobile"
+        applicationId "com.persoldidwallet"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 29

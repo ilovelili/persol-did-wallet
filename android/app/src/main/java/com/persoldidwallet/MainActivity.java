@@ -1,4 +1,4 @@
-package com.dafmobile;
+package com.persoldidwallet;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -20,7 +20,7 @@ public class MainActivity extends ReactFragmentActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "DafMobile";
+        return "PersolDIDWallet";
     }
 
     @Override

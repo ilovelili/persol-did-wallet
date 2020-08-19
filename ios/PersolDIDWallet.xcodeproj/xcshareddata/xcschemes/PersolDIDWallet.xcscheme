@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "DafMobile.app"
-               BlueprintName = "DafMobile"
-               ReferencedContainer = "container:DafMobile.xcodeproj">
+               BuildableName = "PersolDIDWallet.app"
+               BlueprintName = "PersolDIDWallet"
+               ReferencedContainer = "container:PersolDIDWallet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -31,9 +31,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "DafMobile.app"
-            BlueprintName = "DafMobile"
-            ReferencedContainer = "container:DafMobile.xcodeproj">
+            BuildableName = "PersolDIDWallet.app"
+            BlueprintName = "PersolDIDWallet"
+            ReferencedContainer = "container:PersolDIDWallet.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -42,9 +42,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "DafMobileTests.xctest"
-               BlueprintName = "DafMobileTests"
-               ReferencedContainer = "container:DafMobile.xcodeproj">
+               BuildableName = "PersolDIDWalletTests.xctest"
+               BlueprintName = "PersolDIDWalletTests"
+               ReferencedContainer = "container:PersolDIDWallet.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "DafMobile.app"
-            BlueprintName = "DafMobile"
-            ReferencedContainer = "container:DafMobile.xcodeproj">
+            BuildableName = "PersolDIDWallet.app"
+            BlueprintName = "PersolDIDWallet"
+            ReferencedContainer = "container:PersolDIDWallet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -88,9 +88,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "DafMobile.app"
-            BlueprintName = "DafMobile"
-            ReferencedContainer = "container:DafMobile.xcodeproj">
+            BuildableName = "PersolDIDWallet.app"
+            BlueprintName = "PersolDIDWallet"
+            ReferencedContainer = "container:PersolDIDWallet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

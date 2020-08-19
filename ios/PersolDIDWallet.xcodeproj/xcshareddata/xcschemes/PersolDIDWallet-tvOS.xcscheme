@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "DafMobile-tvOS.app"
-               BlueprintName = "DafMobile-tvOS"
-               ReferencedContainer = "container:DafMobile.xcodeproj">
+               BuildableName = "PersolDIDWallet-tvOS.app"
+               BlueprintName = "PersolDIDWallet-tvOS"
+               ReferencedContainer = "container:PersolDIDWallet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "DafMobile-tvOSTests.xctest"
-               BlueprintName = "DafMobile-tvOSTests"
-               ReferencedContainer = "container:DafMobile.xcodeproj">
+               BuildableName = "PersolDIDWallet-tvOSTests.xctest"
+               BlueprintName = "PersolDIDWallet-tvOSTests"
+               ReferencedContainer = "container:PersolDIDWallet.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "DafMobile-tvOS.app"
-            BlueprintName = "DafMobile-tvOS"
-            ReferencedContainer = "container:DafMobile.xcodeproj">
+            BuildableName = "PersolDIDWallet-tvOS.app"
+            BlueprintName = "PersolDIDWallet-tvOS"
+            ReferencedContainer = "container:PersolDIDWallet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -74,9 +74,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "DafMobile-tvOS.app"
-            BlueprintName = "DafMobile-tvOS"
-            ReferencedContainer = "container:DafMobile.xcodeproj">
+            BuildableName = "PersolDIDWallet-tvOS.app"
+            BlueprintName = "PersolDIDWallet-tvOS"
+            ReferencedContainer = "container:PersolDIDWallet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

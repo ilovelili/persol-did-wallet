@@ -73,5 +73,5 @@ console.log(Config.ENV); // dev
 To use a different env file set `ENVFILE` variable:
 
 ```bash
-$ ENVFILE=.env.production react-native run-android
+ENVFILE=.env.production react-native run-android
 ```

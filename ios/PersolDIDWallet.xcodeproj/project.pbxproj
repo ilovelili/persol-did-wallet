@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* DafMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DafMobileTests.m */; };
-		0509A09DB66C201B2D7E7D77 /* libPods-DafMobile-DafMobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC94739A719A9908B616A2C3 /* libPods-DafMobile-DafMobileTests.a */; };
+		00E356F31AD99517003FC87E /* PersolDIDWalletTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* PersolDIDWalletTests.m */; };
+		0509A09DB66C201B2D7E7D77 /* libPods-PersolDIDWallet-PersolDIDWalletTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC94739A719A9908B616A2C3 /* libPods-PersolDIDWallet-PersolDIDWalletTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -17,13 +17,13 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
-		2DCD954D1E0B4F2C00145EB5 /* DafMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DafMobileTests.m */; };
-		96D1BE56248E9C770003FB49 /* libPods-DafMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D1BE55248E9C770003FB49 /* libPods-DafMobile.a */; };
-		96D1BE65248F8E660003FB49 /* DafMobile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D1BE64248F8E660003FB49 /* DafMobile.swift */; };
-		96D1BE66248F8E6B0003FB49 /* DafMobile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D1BE64248F8E660003FB49 /* DafMobile.swift */; };
-		D25D594E501F2E00E6916F25 /* libPods-DafMobile-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBEE661503113C7BD8FF6F19 /* libPods-DafMobile-tvOS.a */; };
+		2DCD954D1E0B4F2C00145EB5 /* PersolDIDWalletTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* PersolDIDWalletTests.m */; };
+		96D1BE56248E9C770003FB49 /* libPods-PersolDIDWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D1BE55248E9C770003FB49 /* libPods-PersolDIDWallet.a */; };
+		96D1BE65248F8E660003FB49 /* PersolDIDWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D1BE64248F8E660003FB49 /* PersolDIDWallet.swift */; };
+		96D1BE66248F8E6B0003FB49 /* PersolDIDWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D1BE64248F8E660003FB49 /* PersolDIDWallet.swift */; };
+		D25D594E501F2E00E6916F25 /* libPods-PersolDIDWallet-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBEE661503113C7BD8FF6F19 /* libPods-PersolDIDWallet-tvOS.a */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
-		F03C021136739D7F6ADF9C52 /* libPods-DafMobile-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0700AF344D50C550AA10E55 /* libPods-DafMobile-tvOSTests.a */; };
+		F03C021136739D7F6ADF9C52 /* libPods-PersolDIDWallet-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0700AF344D50C550AA10E55 /* libPods-PersolDIDWallet-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +32,14 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = DafMobile;
+			remoteInfo = PersolDIDWallet;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "DafMobile-tvOS";
+			remoteInfo = "PersolDIDWallet-tvOS";
 		};
 		965788972342531A00111496 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -59,27 +59,27 @@
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* DafMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DafMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* PersolDIDWalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersolDIDWalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* DafMobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DafMobileTests.m; sourceTree = "<group>"; };
-		11E9804F02AF0E732D0E22ED /* Pods-DafMobile-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DafMobile-tvOS.release.xcconfig"; path = "Target Support Files/Pods-DafMobile-tvOS/Pods-DafMobile-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* DafMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DafMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = DafMobile/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = DafMobile/AppDelegate.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* PersolDIDWalletTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersolDIDWalletTests.m; sourceTree = "<group>"; };
+		11E9804F02AF0E732D0E22ED /* Pods-PersolDIDWallet-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersolDIDWallet-tvOS.release.xcconfig"; path = "Target Support Files/Pods-PersolDIDWallet-tvOS/Pods-PersolDIDWallet-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* PersolDIDWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersolDIDWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = PersolDIDWallet/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = PersolDIDWallet/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = DafMobile/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = DafMobile/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DafMobile/main.m; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* DafMobile-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DafMobile-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* DafMobile-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DafMobile-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PersolDIDWallet/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = PersolDIDWallet/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = PersolDIDWallet/main.m; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* PersolDIDWallet-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PersolDIDWallet-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* PersolDIDWallet-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PersolDIDWallet-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DA5CF1259309BFABCCE7173 /* Pods-DafMobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DafMobileTests.debug.xcconfig"; path = "Target Support Files/Pods-DafMobileTests/Pods-DafMobileTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4B4CFFE1816C307F851FD7D6 /* Pods-DafMobile-DafMobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DafMobile-DafMobileTests.release.xcconfig"; path = "Target Support Files/Pods-DafMobile-DafMobileTests/Pods-DafMobile-DafMobileTests.release.xcconfig"; sourceTree = "<group>"; };
+		2DA5CF1259309BFABCCE7173 /* Pods-PersolDIDWalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersolDIDWalletTests.debug.xcconfig"; path = "Target Support Files/Pods-PersolDIDWalletTests/Pods-PersolDIDWalletTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4B4CFFE1816C307F851FD7D6 /* Pods-PersolDIDWallet-PersolDIDWalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersolDIDWallet-PersolDIDWalletTests.release.xcconfig"; path = "Target Support Files/Pods-PersolDIDWallet-PersolDIDWalletTests/Pods-PersolDIDWallet-PersolDIDWalletTests.release.xcconfig"; sourceTree = "<group>"; };
 		7010C9EC227B270200642EEA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		7077030522B8FF8E002885B6 /* DafMobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DafMobile.entitlements; path = DafMobile/DafMobile.entitlements; sourceTree = "<group>"; };
+		7077030522B8FF8E002885B6 /* PersolDIDWallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = PersolDIDWallet.entitlements; path = PersolDIDWallet/PersolDIDWallet.entitlements; sourceTree = "<group>"; };
 		70AFD2B522C3C10B00C7808E /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
-		7FBD2D21B3B1C2EDD4BBAB3A /* Pods-DafMobile-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DafMobile-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-DafMobile-tvOSTests/Pods-DafMobile-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		924ABD49744AF22892B40E78 /* Pods-DafMobile-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DafMobile-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-DafMobile-tvOSTests/Pods-DafMobile-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7FBD2D21B3B1C2EDD4BBAB3A /* Pods-PersolDIDWallet-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersolDIDWallet-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-PersolDIDWallet-tvOSTests/Pods-PersolDIDWallet-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		924ABD49744AF22892B40E78 /* Pods-PersolDIDWallet-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersolDIDWallet-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-PersolDIDWallet-tvOSTests/Pods-PersolDIDWallet-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9685348222BD26A300EED8BB /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		9685348322BD26A300EED8BB /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		9685348422BD26A300EED8BB /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
@@ -96,20 +96,20 @@
 		9685348F22BD26A300EED8BB /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Zocial.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		9685349022BD26A300EED8BB /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Entypo.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		968D41182346149C00720469 /* libRNUportSigner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNUportSigner.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		96D1BE55248E9C770003FB49 /* libPods-DafMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-DafMobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		96D1BE63248F8E650003FB49 /* DafMobile-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DafMobile-Bridging-Header.h"; sourceTree = "<group>"; };
-		96D1BE64248F8E660003FB49 /* DafMobile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DafMobile.swift; path = DafMobile/DafMobile.swift; sourceTree = "<group>"; };
-		A790B15AB706002380B90922 /* Pods-DafMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DafMobile.release.xcconfig"; path = "Target Support Files/Pods-DafMobile/Pods-DafMobile.release.xcconfig"; sourceTree = "<group>"; };
-		AC94739A719A9908B616A2C3 /* libPods-DafMobile-DafMobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DafMobile-DafMobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ACCF7930FB9C2F4F68C907E9 /* Pods-DafMobile-DafMobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DafMobile-DafMobileTests.debug.xcconfig"; path = "Target Support Files/Pods-DafMobile-DafMobileTests/Pods-DafMobile-DafMobileTests.debug.xcconfig"; sourceTree = "<group>"; };
-		BFC85E9052E5AD40FA86DE27 /* libPods-DafMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DafMobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9E0906A2D6B9E7D0BCA9C39 /* Pods-DafMobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DafMobileTests.release.xcconfig"; path = "Target Support Files/Pods-DafMobileTests/Pods-DafMobileTests.release.xcconfig"; sourceTree = "<group>"; };
-		CDAA8A0F5C7A54F975DD6112 /* Pods-DafMobile-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DafMobile-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-DafMobile-tvOS/Pods-DafMobile-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		DC6ACD3D32F2E1B1EB33F892 /* Pods-DafMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DafMobile.debug.xcconfig"; path = "Target Support Files/Pods-DafMobile/Pods-DafMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		96D1BE55248E9C770003FB49 /* libPods-PersolDIDWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-PersolDIDWallet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96D1BE63248F8E650003FB49 /* PersolDIDWallet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PersolDIDWallet-Bridging-Header.h"; sourceTree = "<group>"; };
+		96D1BE64248F8E660003FB49 /* PersolDIDWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersolDIDWallet.swift; path = PersolDIDWallet/PersolDIDWallet.swift; sourceTree = "<group>"; };
+		A790B15AB706002380B90922 /* Pods-PersolDIDWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersolDIDWallet.release.xcconfig"; path = "Target Support Files/Pods-PersolDIDWallet/Pods-PersolDIDWallet.release.xcconfig"; sourceTree = "<group>"; };
+		AC94739A719A9908B616A2C3 /* libPods-PersolDIDWallet-PersolDIDWalletTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PersolDIDWallet-PersolDIDWalletTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACCF7930FB9C2F4F68C907E9 /* Pods-PersolDIDWallet-PersolDIDWalletTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersolDIDWallet-PersolDIDWalletTests.debug.xcconfig"; path = "Target Support Files/Pods-PersolDIDWallet-PersolDIDWalletTests/Pods-PersolDIDWallet-PersolDIDWalletTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BFC85E9052E5AD40FA86DE27 /* libPods-PersolDIDWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PersolDIDWallet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9E0906A2D6B9E7D0BCA9C39 /* Pods-PersolDIDWalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersolDIDWalletTests.release.xcconfig"; path = "Target Support Files/Pods-PersolDIDWalletTests/Pods-PersolDIDWalletTests.release.xcconfig"; sourceTree = "<group>"; };
+		CDAA8A0F5C7A54F975DD6112 /* Pods-PersolDIDWallet-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersolDIDWallet-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-PersolDIDWallet-tvOS/Pods-PersolDIDWallet-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		DC6ACD3D32F2E1B1EB33F892 /* Pods-PersolDIDWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersolDIDWallet.debug.xcconfig"; path = "Target Support Files/Pods-PersolDIDWallet/Pods-PersolDIDWallet.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F0700AF344D50C550AA10E55 /* libPods-DafMobile-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DafMobile-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBEE661503113C7BD8FF6F19 /* libPods-DafMobile-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DafMobile-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0700AF344D50C550AA10E55 /* libPods-PersolDIDWallet-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PersolDIDWallet-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBEE661503113C7BD8FF6F19 /* libPods-PersolDIDWallet-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PersolDIDWallet-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0509A09DB66C201B2D7E7D77 /* libPods-DafMobile-DafMobileTests.a in Frameworks */,
+				0509A09DB66C201B2D7E7D77 /* libPods-PersolDIDWallet-PersolDIDWalletTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96D1BE56248E9C770003FB49 /* libPods-DafMobile.a in Frameworks */,
+				96D1BE56248E9C770003FB49 /* libPods-PersolDIDWallet.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +135,7 @@
 			files = (
 				ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */,
-				D25D594E501F2E00E6916F25 /* libPods-DafMobile-tvOS.a in Frameworks */,
+				D25D594E501F2E00E6916F25 /* libPods-PersolDIDWallet-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,20 +143,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F03C021136739D7F6ADF9C52 /* libPods-DafMobile-tvOSTests.a in Frameworks */,
+				F03C021136739D7F6ADF9C52 /* libPods-PersolDIDWallet-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* DafMobileTests */ = {
+		00E356EF1AD99517003FC87E /* PersolDIDWalletTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* DafMobileTests.m */,
+				00E356F21AD99517003FC87E /* PersolDIDWalletTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = DafMobileTests;
+			path = PersolDIDWalletTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -167,12 +167,12 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* DafMobile */ = {
+		13B07FAE1A68108700A75B9A /* PersolDIDWallet */ = {
 			isa = PBXGroup;
 			children = (
-				96D1BE63248F8E650003FB49 /* DafMobile-Bridging-Header.h */,
-				96D1BE64248F8E660003FB49 /* DafMobile.swift */,
-				7077030522B8FF8E002885B6 /* DafMobile.entitlements */,
+				96D1BE63248F8E650003FB49 /* PersolDIDWallet-Bridging-Header.h */,
+				96D1BE64248F8E660003FB49 /* PersolDIDWallet.swift */,
+				7077030522B8FF8E002885B6 /* PersolDIDWallet.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -181,22 +181,22 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = DafMobile;
+			name = PersolDIDWallet;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				96D1BE55248E9C770003FB49 /* libPods-DafMobile.a */,
+				96D1BE55248E9C770003FB49 /* libPods-PersolDIDWallet.a */,
 				968D41182346149C00720469 /* libRNUportSigner.a */,
 				7010C9EC227B270200642EEA /* libz.tbd */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				BFC85E9052E5AD40FA86DE27 /* libPods-DafMobile.a */,
-				FBEE661503113C7BD8FF6F19 /* libPods-DafMobile-tvOS.a */,
-				F0700AF344D50C550AA10E55 /* libPods-DafMobile-tvOSTests.a */,
-				AC94739A719A9908B616A2C3 /* libPods-DafMobile-DafMobileTests.a */,
+				BFC85E9052E5AD40FA86DE27 /* libPods-PersolDIDWallet.a */,
+				FBEE661503113C7BD8FF6F19 /* libPods-PersolDIDWallet-tvOS.a */,
+				F0700AF344D50C550AA10E55 /* libPods-PersolDIDWallet-tvOSTests.a */,
+				AC94739A719A9908B616A2C3 /* libPods-PersolDIDWallet-PersolDIDWalletTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -228,9 +228,9 @@
 			isa = PBXGroup;
 			children = (
 				9685348122BD25DD00EED8BB /* Icons */,
-				13B07FAE1A68108700A75B9A /* DafMobile */,
+				13B07FAE1A68108700A75B9A /* PersolDIDWallet */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* DafMobileTests */,
+				00E356EF1AD99517003FC87E /* PersolDIDWalletTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				701980502278611000372518 /* Recovered References */,
@@ -244,10 +244,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* DafMobile.app */,
-				00E356EE1AD99517003FC87E /* DafMobileTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* DafMobile-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* DafMobile-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* PersolDIDWallet.app */,
+				00E356EE1AD99517003FC87E /* PersolDIDWalletTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* PersolDIDWallet-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* PersolDIDWallet-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -277,16 +277,16 @@
 		D46C82B1ABA8F7023B562381 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DC6ACD3D32F2E1B1EB33F892 /* Pods-DafMobile.debug.xcconfig */,
-				A790B15AB706002380B90922 /* Pods-DafMobile.release.xcconfig */,
-				CDAA8A0F5C7A54F975DD6112 /* Pods-DafMobile-tvOS.debug.xcconfig */,
-				11E9804F02AF0E732D0E22ED /* Pods-DafMobile-tvOS.release.xcconfig */,
-				924ABD49744AF22892B40E78 /* Pods-DafMobile-tvOSTests.debug.xcconfig */,
-				7FBD2D21B3B1C2EDD4BBAB3A /* Pods-DafMobile-tvOSTests.release.xcconfig */,
-				2DA5CF1259309BFABCCE7173 /* Pods-DafMobileTests.debug.xcconfig */,
-				C9E0906A2D6B9E7D0BCA9C39 /* Pods-DafMobileTests.release.xcconfig */,
-				ACCF7930FB9C2F4F68C907E9 /* Pods-DafMobile-DafMobileTests.debug.xcconfig */,
-				4B4CFFE1816C307F851FD7D6 /* Pods-DafMobile-DafMobileTests.release.xcconfig */,
+				DC6ACD3D32F2E1B1EB33F892 /* Pods-PersolDIDWallet.debug.xcconfig */,
+				A790B15AB706002380B90922 /* Pods-PersolDIDWallet.release.xcconfig */,
+				CDAA8A0F5C7A54F975DD6112 /* Pods-PersolDIDWallet-tvOS.debug.xcconfig */,
+				11E9804F02AF0E732D0E22ED /* Pods-PersolDIDWallet-tvOS.release.xcconfig */,
+				924ABD49744AF22892B40E78 /* Pods-PersolDIDWallet-tvOSTests.debug.xcconfig */,
+				7FBD2D21B3B1C2EDD4BBAB3A /* Pods-PersolDIDWallet-tvOSTests.release.xcconfig */,
+				2DA5CF1259309BFABCCE7173 /* Pods-PersolDIDWalletTests.debug.xcconfig */,
+				C9E0906A2D6B9E7D0BCA9C39 /* Pods-PersolDIDWalletTests.release.xcconfig */,
+				ACCF7930FB9C2F4F68C907E9 /* Pods-PersolDIDWallet-PersolDIDWalletTests.debug.xcconfig */,
+				4B4CFFE1816C307F851FD7D6 /* Pods-PersolDIDWallet-PersolDIDWalletTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -294,9 +294,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* DafMobileTests */ = {
+		00E356ED1AD99517003FC87E /* PersolDIDWalletTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "DafMobileTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "PersolDIDWalletTests" */;
 			buildPhases = (
 				B6E769CD50872E6FE84BD1E9 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -309,14 +309,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = DafMobileTests;
-			productName = DafMobileTests;
-			productReference = 00E356EE1AD99517003FC87E /* DafMobileTests.xctest */;
+			name = PersolDIDWalletTests;
+			productName = PersolDIDWalletTests;
+			productReference = 00E356EE1AD99517003FC87E /* PersolDIDWalletTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* DafMobile */ = {
+		13B07F861A680F5B00A75B9A /* PersolDIDWallet */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "DafMobile" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "PersolDIDWallet" */;
 			buildPhases = (
 				6804CC9135BF548BABE5DBD1 /* [CP] Check Pods Manifest.lock */,
 				9657889B2342533800111496 /* Start Packager */,
@@ -330,14 +330,14 @@
 			);
 			dependencies = (
 			);
-			name = DafMobile;
+			name = PersolDIDWallet;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* DafMobile.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* PersolDIDWallet.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* DafMobile-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* PersolDIDWallet-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "DafMobile-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "PersolDIDWallet-tvOS" */;
 			buildPhases = (
 				DA07C518F0C79C1D24F19E5E /* [CP] Check Pods Manifest.lock */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
@@ -349,14 +349,14 @@
 			);
 			dependencies = (
 			);
-			name = "DafMobile-tvOS";
-			productName = "DafMobile-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* DafMobile-tvOS.app */;
+			name = "PersolDIDWallet-tvOS";
+			productName = "PersolDIDWallet-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* PersolDIDWallet-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* DafMobile-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* PersolDIDWallet-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "DafMobile-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "PersolDIDWallet-tvOSTests" */;
 			buildPhases = (
 				CC652D70D5835BF874D3BB31 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -368,9 +368,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "DafMobile-tvOSTests";
-			productName = "DafMobile-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* DafMobile-tvOSTests.xctest */;
+			name = "PersolDIDWallet-tvOSTests";
+			productName = "PersolDIDWallet-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* PersolDIDWallet-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -412,7 +412,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "DafMobile" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "PersolDIDWallet" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -432,10 +432,10 @@
 			);
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* DafMobile */,
-				00E356ED1AD99517003FC87E /* DafMobileTests */,
-				2D02E47A1E0B4A5D006451C7 /* DafMobile-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* DafMobile-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* PersolDIDWallet */,
+				00E356ED1AD99517003FC87E /* PersolDIDWalletTests */,
+				2D02E47A1E0B4A5D006451C7 /* PersolDIDWallet-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* PersolDIDWallet-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -526,7 +526,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DafMobile/Pods-DafMobile-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-PersolDIDWallet/Pods-PersolDIDWallet-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -565,7 +565,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DafMobile/Pods-DafMobile-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PersolDIDWallet/Pods-PersolDIDWallet-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6804CC9135BF548BABE5DBD1 /* [CP] Check Pods Manifest.lock */ = {
@@ -583,7 +583,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DafMobile-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-PersolDIDWallet-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -623,7 +623,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DafMobile-DafMobileTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-PersolDIDWallet-PersolDIDWalletTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -636,7 +636,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DafMobile-DafMobileTests/Pods-DafMobile-DafMobileTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-PersolDIDWallet-PersolDIDWalletTests/Pods-PersolDIDWallet-PersolDIDWalletTests-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -675,7 +675,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DafMobile-DafMobileTests/Pods-DafMobile-DafMobileTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PersolDIDWallet-PersolDIDWalletTests/Pods-PersolDIDWallet-PersolDIDWalletTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CC652D70D5835BF874D3BB31 /* [CP] Check Pods Manifest.lock */ = {
@@ -693,7 +693,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DafMobile-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-PersolDIDWallet-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -715,7 +715,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DafMobile-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-PersolDIDWallet-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -729,7 +729,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* DafMobileTests.m in Sources */,
+				00E356F31AD99517003FC87E /* PersolDIDWalletTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,7 +739,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				96D1BE65248F8E660003FB49 /* DafMobile.swift in Sources */,
+				96D1BE65248F8E660003FB49 /* PersolDIDWallet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,7 +749,7 @@
 			files = (
 				2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */,
 				2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */,
-				96D1BE66248F8E6B0003FB49 /* DafMobile.swift in Sources */,
+				96D1BE66248F8E6B0003FB49 /* PersolDIDWallet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -757,7 +757,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* DafMobileTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* PersolDIDWalletTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,12 +766,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* DafMobile */;
+			target = 13B07F861A680F5B00A75B9A /* PersolDIDWallet */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* DafMobile-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* PersolDIDWallet-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -783,7 +783,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = DafMobile;
+			path = PersolDIDWallet;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -791,7 +791,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ACCF7930FB9C2F4F68C907E9 /* Pods-DafMobile-DafMobileTests.debug.xcconfig */;
+			baseConfigurationReference = ACCF7930FB9C2F4F68C907E9 /* Pods-PersolDIDWallet-PersolDIDWalletTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -806,7 +806,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 				);
-				INFOPLIST_FILE = DafMobileTests/Info.plist;
+				INFOPLIST_FILE = PersolDIDWalletTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -818,13 +818,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DafMobile.app/DafMobile";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PersolDIDWallet.app/PersolDIDWallet";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4B4CFFE1816C307F851FD7D6 /* Pods-DafMobile-DafMobileTests.release.xcconfig */;
+			baseConfigurationReference = 4B4CFFE1816C307F851FD7D6 /* Pods-PersolDIDWallet-PersolDIDWalletTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -835,7 +835,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 				);
-				INFOPLIST_FILE = DafMobileTests/Info.plist;
+				INFOPLIST_FILE = PersolDIDWalletTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
@@ -847,17 +847,17 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DafMobile.app/DafMobile";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PersolDIDWallet.app/PersolDIDWallet";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC6ACD3D32F2E1B1EB33F892 /* Pods-DafMobile.debug.xcconfig */;
+			baseConfigurationReference = DC6ACD3D32F2E1B1EB33F892 /* Pods-PersolDIDWallet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = DafMobile/DafMobile.entitlements;
+				CODE_SIGN_ENTITLEMENTS = PersolDIDWallet/PersolDIDWallet.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -868,7 +868,7 @@
 					"FB_SONARKIT_ENABLED=1",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = DafMobile/Info.plist;
+				INFOPLIST_FILE = PersolDIDWallet/Info.plist;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "";
 				INFOPLIST_PREFIX_HEADER = "${BUILD_DIR}/GeneratedInfoPlistDotEnv.h";
 				INFOPLIST_PREPROCESS = YES;
@@ -880,9 +880,9 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.serto.wallet;
-				PRODUCT_NAME = DafMobile;
+				PRODUCT_NAME = PersolDIDWallet;
 				PROVISIONING_PROFILE_SPECIFIER = "match Development co.serto.wallet";
-				SWIFT_OBJC_BRIDGING_HEADER = "DafMobile-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "PersolDIDWallet-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				USER_HEADER_SEARCH_PATHS = "${PODS_ROOT}/EthCore ${PODS_ROOT}/EthCore/openssl/include";
@@ -892,17 +892,17 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A790B15AB706002380B90922 /* Pods-DafMobile.release.xcconfig */;
+			baseConfigurationReference = A790B15AB706002380B90922 /* Pods-PersolDIDWallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = DafMobile/DafMobile.entitlements;
+				CODE_SIGN_ENTITLEMENTS = PersolDIDWallet/PersolDIDWallet.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 82SAVLYZ3K;
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = DafMobile/Info.plist;
+				INFOPLIST_FILE = PersolDIDWallet/Info.plist;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "";
 				INFOPLIST_PREFIX_HEADER = "${BUILD_DIR}/GeneratedInfoPlistDotEnv.h";
 				INFOPLIST_PREPROCESS = YES;
@@ -914,9 +914,9 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.serto.wallet;
-				PRODUCT_NAME = DafMobile;
+				PRODUCT_NAME = PersolDIDWallet;
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore co.serto.wallet";
-				SWIFT_OBJC_BRIDGING_HEADER = "DafMobile-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "PersolDIDWallet-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				USER_HEADER_SEARCH_PATHS = "${PODS_ROOT}/EthCore ${PODS_ROOT}/EthCore/openssl/include";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -925,7 +925,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CDAA8A0F5C7A54F975DD6112 /* Pods-DafMobile-tvOS.debug.xcconfig */;
+			baseConfigurationReference = CDAA8A0F5C7A54F975DD6112 /* Pods-PersolDIDWallet-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -941,14 +941,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 				);
-				INFOPLIST_FILE = "DafMobile-tvOS/Info.plist";
+				INFOPLIST_FILE = "PersolDIDWallet-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.DafMobile-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.PersolDIDWallet-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -958,7 +958,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11E9804F02AF0E732D0E22ED /* Pods-DafMobile-tvOS.release.xcconfig */;
+			baseConfigurationReference = 11E9804F02AF0E732D0E22ED /* Pods-PersolDIDWallet-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -974,14 +974,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 				);
-				INFOPLIST_FILE = "DafMobile-tvOS/Info.plist";
+				INFOPLIST_FILE = "PersolDIDWallet-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.DafMobile-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.PersolDIDWallet-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -991,7 +991,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 924ABD49744AF22892B40E78 /* Pods-DafMobile-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 924ABD49744AF22892B40E78 /* Pods-PersolDIDWallet-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1006,24 +1006,24 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 				);
-				INFOPLIST_FILE = "DafMobile-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "PersolDIDWallet-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.DafMobile-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.PersolDIDWallet-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DafMobile-tvOS.app/DafMobile-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PersolDIDWallet-tvOS.app/PersolDIDWallet-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7FBD2D21B3B1C2EDD4BBAB3A /* Pods-DafMobile-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 7FBD2D21B3B1C2EDD4BBAB3A /* Pods-PersolDIDWallet-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1038,17 +1038,17 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/appcenter/ios/AppCenterReactNative",
 				);
-				INFOPLIST_FILE = "DafMobile-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "PersolDIDWallet-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.DafMobile-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.PersolDIDWallet-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DafMobile-tvOS.app/DafMobile-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PersolDIDWallet-tvOS.app/PersolDIDWallet-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -1155,7 +1155,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "DafMobileTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "PersolDIDWalletTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -1164,7 +1164,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "DafMobile" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "PersolDIDWallet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1173,7 +1173,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "DafMobile-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "PersolDIDWallet-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1182,7 +1182,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "DafMobile-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "PersolDIDWallet-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1191,7 +1191,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "DafMobile" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "PersolDIDWallet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

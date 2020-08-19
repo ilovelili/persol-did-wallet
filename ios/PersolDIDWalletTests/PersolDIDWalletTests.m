@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface DafMobileTests : XCTestCase
+@interface PersolDIDWalletTests : XCTestCase
 
 @end
 
-@implementation DafMobileTests
+@implementation PersolDIDWalletTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {

@@ -1,0 +1,43 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+desc "Build & push a new beta build to TestFlight"
+before_all do
+  setup_circle_ci
+end
+
+desc "Build archive and sign"
+lane :assemble_ios_build do
+  match(type: "appstore")
+  gym(
+    output_directory: "./output/gym",
+    scheme: "DafMobile",
+    export_method: "app-store",
+    workspace: "DafMobile.xcworkspace",
+    include_bitcode: true,
+    include_symbols: true
+  )
+end
+
+desc "Upload archive to Testflight"
+lane :deploy do
+  upload_to_testflight(
+    ipa: "./output/gym/DafMobile.ipa",
+    skip_submission: true,
+    skip_waiting_for_build_processing: true
+  )
+end

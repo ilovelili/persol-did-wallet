@@ -13,6 +13,7 @@
     "test:ios:release": "detox build -c ios.sim.release && detox test -c ios.sim.release --cleanup",
     "test:ios:debug": "detox build -c ios.sim.debug && detox test -c ios.sim.debug",
     "package-android": "mkdir -p android/app/build/jsbundle/assets/ && mkdir -p android/app/build/jsbundle/res && node node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.js --bundle-output android/app/build/jsbundle/assets/index.android.bundle --assets-dest android/app/build/jsbundle/res",
+    "create-apk": "yarn package-android && cd ./android && ./gradlew assembleDebug && cd ..",
     "release": "semantic-release",
     "postversion": "react-native-version --never-amend",
     "update-daf@beta": "yarn add daf-core@beta daf-did-comm@beta daf-ethr-did@beta daf-did-jwt@beta daf-selective-disclosure@beta daf-w3c@beta daf-url@beta daf-react-native-libsodium@beta daf-resolver@beta",

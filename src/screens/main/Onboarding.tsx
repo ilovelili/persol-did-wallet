@@ -17,25 +17,9 @@ const Onboarding: React.FC<Props> = ({ navigation }) => {
             Get started!
           </Text>
         </Container>
-        {/* <Container marginTop={30}>
-          <Text type={Constants.TextTypes.Body} textAlign={'center'}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </Text>
-        </Container>
-        <Container w={300} marginTop>
-          <Button
-            fullWidth
-            type={Constants.BrandOptions.Primary}
-            block={Constants.ButtonBlocks.Outlined}
-            buttonText={t('Restore seed')}
-            onPress={() => navigation.navigate('Restore')}
-          />
-        </Container> */}
         <Container marginTop={30}>
           <Text type={Constants.TextTypes.Body} textAlign={"center"}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Persol DID is built on uPort DAF
           </Text>
         </Container>
         <Container w={300} marginTop={30}>

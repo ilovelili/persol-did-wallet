@@ -129,7 +129,6 @@ exports[`Onboarding renders the intermediate screen if dids are present 1`] = `
           }
         }
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </Text>
     </View>
     <View

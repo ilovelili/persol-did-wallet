@@ -1,34 +1,34 @@
-import React, { useEffect } from 'react'
-import { agent, Message } from '../lib/setup'
-import { wcEventHub } from '../providers/WalletConnect'
-import { Screens } from '../navigators/screens'
-import AppConstants from '../constants/index'
-import { useApolloClient } from '@apollo/react-hooks'
+import React, { useEffect } from "react";
+import { agent, Message } from "../lib/setup";
+import { wcEventHub } from "../providers/WalletConnect";
+import { Screens } from "../navigators/screens";
+import AppConstants from "../constants/index";
+import { useApolloClient } from "@apollo/react-hooks";
 
 interface WalletConnectProps {
-  navigate: (routeName: any, params: any) => void
+  navigate: (routeName: any, params: any) => void;
 }
 
 /**
  * Top level component to house all the event handlers coming from wallet connect provider
  **/
 const WalletConnect: React.FC<WalletConnectProps> = ({ navigate }) => {
-  const client = useApolloClient()
+  const client = useApolloClient();
 
   useEffect(() => {
     wcEventHub.addListener(
       AppConstants.events.WALLET_CONNECT.SESSION_REQUEST_INT,
       async ({ peerId, peerMeta, payload }: any) => {
-        const requestType = AppConstants.requests.SESSION
+        const requestType = AppConstants.requests.SESSION;
 
         navigate(Screens.Requests.screen, {
           requestType,
           peerId,
           peerMeta,
-          payload,
-        })
-      },
-    )
+          payload
+        });
+      }
+    );
 
     wcEventHub.addListener(
       AppConstants.events.WALLET_CONNECT.CALL_REQUEST_INT,
@@ -36,46 +36,46 @@ const WalletConnect: React.FC<WalletConnectProps> = ({ navigate }) => {
         const message = payload.params[0]
           ? await agent.handleMessage({
               raw: payload.params[0],
-              metaData: [{ type: 'walletConnect' }],
-              save: false,
+              metaData: [{ type: "walletConnect" }],
+              save: false
             })
-          : null
+          : null;
 
-        if (message && payload.method === 'issue_credential') {
-          await message.save()
-          client.reFetchObservableQueries()
+        if (message && payload.method === "issue_credential") {
+          await message.save();
+          client.reFetchObservableQueries();
         }
 
-        if (message && payload.method === 'request_credentials') {
-          await message.save()
-          client.reFetchObservableQueries()
+        if (message && payload.method === "request_credentials") {
+          await message.save();
+          client.reFetchObservableQueries();
 
-          const requestType = AppConstants.requests.DISCLOSURE
+          const requestType = AppConstants.requests.DISCLOSURE;
           navigate(Screens.Requests.screen, {
             isWalletConnect: true,
             requestType,
             peerId,
             peerMeta,
             payload,
-            messageId: message ? message.id : message,
-          })
+            messageId: message ? message.id : message
+          });
         }
-        if (message && payload.method === 'issue_credential_callback') {
-          const requestType = AppConstants.requests.CREDENTIAL
+        if (message && payload.method === "issue_credential_callback") {
+          const requestType = AppConstants.requests.CREDENTIAL;
           navigate(Screens.Requests.screen, {
             isWalletConnect: true,
             requestType,
             peerId,
             peerMeta,
             payload,
-            message,
-          })
+            message
+          });
         }
-      },
-    )
-  }, [])
+      }
+    );
+  }, []);
 
-  return <></>
-}
+  return <></>;
+};
 
-export default WalletConnect
+export default WalletConnect;

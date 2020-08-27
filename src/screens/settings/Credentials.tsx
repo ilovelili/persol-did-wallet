@@ -2,36 +2,36 @@
  * Serto Mobile App
  *
  */
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { FlatList } from 'react-native'
-import { useQuery } from '@apollo/react-hooks'
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { FlatList } from "react-native";
+import { useQuery } from "@apollo/react-hooks";
 import {
   Container,
   Screen,
   ListItem,
   Text,
   Avatar,
-  Constants,
-} from '@kancha/kancha-ui'
-import { Colors } from '../../theme'
-import { withNavigation } from 'react-navigation'
-import { NavigationStackScreenProps } from 'react-navigation-stack'
-import { GET_CREDENTIALS_FOR_IDENTITY } from '../../lib/graphql/queries'
+  Constants
+} from "@kancha/kancha-ui";
+import { Colors } from "../../theme";
+import { withNavigation } from "react-navigation";
+import { NavigationStackScreenProps } from "react-navigation-stack";
+import { GET_CREDENTIALS_FOR_IDENTITY } from "../../lib/graphql/queries";
 
 interface Props extends NavigationStackScreenProps {}
 
 export const Credentials: React.FC<Props> = props => {
-  const { navigation } = props
-  const did = navigation.getParam('did')
+  const { navigation } = props;
+  const did = navigation.getParam("did");
   const { data, loading, error, refetch } = useQuery(
     GET_CREDENTIALS_FOR_IDENTITY,
     {
       variables: {
-        did,
-      },
-    },
-  )
+        did
+      }
+    }
+  );
 
   return (
     <Container />
@@ -99,7 +99,7 @@ export const Credentials: React.FC<Props> = props => {
     //     )}
     //   </Container>
     // </Screen>
-  )
-}
+  );
+};
 
-export default withNavigation(Credentials)
+export default withNavigation(Credentials);

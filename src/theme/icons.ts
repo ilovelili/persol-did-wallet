@@ -4,5 +4,5 @@ export default {
   CLOSE: { name: 'ios-close', iconFamily: 'Ionicons' },
   SEARCH: { name: 'ios-search', iconFamily: 'Ionicons' },
   HEART: { name: 'md-heart', iconFamily: 'Ionicons' },
-  SETTINGS: { name: 'ios-settings', iconFamily: 'Ionicons' },
+  SETTINGS: { name: 'ios-settings', iconFamily: 'Ionicons' }
 }

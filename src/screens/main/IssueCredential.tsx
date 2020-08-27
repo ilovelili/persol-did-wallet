@@ -1,60 +1,60 @@
 /**
  *
  */
-import React, { useState, useEffect, createRef, useContext } from 'react'
-import { TextInput, ActivityIndicator } from 'react-native'
+import React, { useState, useEffect, createRef, useContext } from "react";
+import { TextInput, ActivityIndicator } from "react-native";
 import {
   Container,
   Text,
   Screen,
   Constants,
   Button,
-  Icon,
-} from '@kancha/kancha-ui'
-import { HeaderButtons, Item } from 'react-navigation-header-buttons'
-import { NavigationStackScreenProps } from 'react-navigation-stack'
-import { Colors } from '../../theme'
-import { useMutation, useLazyQuery } from 'react-apollo'
+  Icon
+} from "@kancha/kancha-ui";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import { NavigationStackScreenProps } from "react-navigation-stack";
+import { Colors } from "../../theme";
+import { useMutation, useLazyQuery } from "react-apollo";
 import {
   SEND_JWT_MUTATION,
   SIGN_VC_MUTATION,
   GET_VIEWER_CREDENTIALS,
   GET_ALL_IDENTITIES,
-  NEW_MESSAGE,
-} from '../../lib/graphql/queries'
-import { useTranslation } from 'react-i18next'
-import { TouchableHighlight } from 'react-native-gesture-handler'
-import { Identity } from '@kancha/kancha-ui/dist/types'
-import hexToRgba from 'hex-to-rgba'
+  NEW_MESSAGE
+} from "../../lib/graphql/queries";
+import { useTranslation } from "react-i18next";
+import { TouchableHighlight } from "react-native-gesture-handler";
+import { Identity } from "@kancha/kancha-ui/dist/types";
+import hexToRgba from "hex-to-rgba";
 
 interface Field {
-  type: string
-  value: any
+  type: string;
+  value: any;
 }
 
 const claimToObject = (arr: any[]) => {
   return arr.reduce(
     (obj, item) => Object.assign(obj, { [item.type]: item.value }),
-    {},
-  )
-}
+    {}
+  );
+};
 
 const IssueCredential: React.FC<NavigationStackScreenProps> & {
-  navigationOptions: any
+  navigationOptions: any;
 } = ({ navigation }) => {
-  const { t } = useTranslation()
-  const viewer = navigation.getParam('viewer')
-  const [claimType, setClaimType] = useState()
-  const [claimValue, setClaimValue] = useState()
-  const [errorMessage, setErrorMessage] = useState()
-  const [sending, setSending] = useState(false)
-  const [subject, setSubject] = useState(viewer)
-  const [fields, updateFields] = useState<Field[]>([])
+  const { t } = useTranslation();
+  const viewer = navigation.getParam("viewer");
+  const [claimType, setClaimType] = useState();
+  const [claimValue, setClaimValue] = useState();
+  const [errorMessage, setErrorMessage] = useState();
+  const [sending, setSending] = useState(false);
+  const [subject, setSubject] = useState(viewer);
+  const [fields, updateFields] = useState<Field[]>([]);
   const [getKnownIdentities, { data, loading }] = useLazyQuery(
-    GET_ALL_IDENTITIES,
-  )
-  const [handleMessage] = useMutation(NEW_MESSAGE)
-  const [identitySelectOpen, setIdentitySelect] = useState(false)
+    GET_ALL_IDENTITIES
+  );
+  const [handleMessage] = useMutation(NEW_MESSAGE);
+  const [identitySelectOpen, setIdentitySelect] = useState(false);
 
   const inputSubject = (did: string) => {
     /**
@@ -62,52 +62,53 @@ const IssueCredential: React.FC<NavigationStackScreenProps> & {
      * identities then we use that entry as it may have additional data associated
      */
     const matchedIdentity =
-      data && data.identities.find((identity: Identity) => identity.did === did)
+      data &&
+      data.identities.find((identity: Identity) => identity.did === did);
     if (matchedIdentity) {
-      setSubject(matchedIdentity)
+      setSubject(matchedIdentity);
     } else {
       const sub = {
         did,
-        shortId: 'an unknown did',
-      }
-      setSubject(sub)
+        shortId: "an unknown did"
+      };
+      setSubject(sub);
     }
-  }
+  };
 
   const updateClaimFields = (field: Field) => {
-    const claimTypes = fields.map((field: Field) => field.type)
-    const newfields = fields.concat([field])
-    setErrorMessage(null)
+    const claimTypes = fields.map((field: Field) => field.type);
+    const newfields = fields.concat([field]);
+    setErrorMessage(null);
 
     if (!field.type) {
-      setErrorMessage(t('Enter claim type'))
-      return
+      setErrorMessage(t("Enter claim type"));
+      return;
     }
 
     if (!field.value) {
-      setErrorMessage(t('Enter claim value'))
-      return
+      setErrorMessage(t("Enter claim value"));
+      return;
     }
 
     if (claimTypes.includes(field.type)) {
-      setErrorMessage(t('Claim type already exists'))
-      return
+      setErrorMessage(t("Claim type already exists"));
+      return;
     }
 
-    updateFields(newfields)
-    setClaimValue(null)
-    setClaimType(null)
-  }
+    updateFields(newfields);
+    setClaimValue(null);
+    setClaimType(null);
+  };
 
   const openIdentitySelection = () => {
-    setIdentitySelect(true)
-    getKnownIdentities()
-  }
+    setIdentitySelect(true);
+    getKnownIdentities();
+  };
 
   const removeClaimField = (index: number) => {
-    const updatedClaims = fields.filter((item: any, i: number) => i !== index)
-    updateFields(updatedClaims)
-  }
+    const updatedClaims = fields.filter((item: any, i: number) => i !== index);
+    updateFields(updatedClaims);
+  };
 
   const [signCredentialJwt] = useMutation(SIGN_VC_MUTATION, {
     onCompleted: async response => {
@@ -119,48 +120,48 @@ const IssueCredential: React.FC<NavigationStackScreenProps> & {
         handleMessage({
           variables: {
             raw: response.signCredentialJwt.raw,
-            meta: [{ type: 'selfSigned' }],
-          },
-        })
+            meta: [{ type: "selfSigned" }]
+          }
+        });
 
-        navigation.dismiss()
+        navigation.dismiss();
       }
-    },
-  })
+    }
+  });
 
   const signVc = (claimFields: Field[]) => {
     signCredentialJwt({
       variables: {
         data: {
           issuer: viewer.did,
-          context: ['https://www.w3.org/2018/credentials/v1'],
-          type: ['VerifiableCredential'],
+          context: ["https://www.w3.org/2018/credentials/v1"],
+          type: ["VerifiableCredential"],
           credentialSubject: {
             id: viewer.did,
-            ...claimToObject(claimFields),
-          },
+            ...claimToObject(claimFields)
+          }
         },
-        save: true,
-      },
-    })
-  }
+        save: true
+      }
+    });
+  };
 
   return (
-    <Screen scrollEnabled background={'primary'}>
+    <Screen scrollEnabled background={"primary"}>
       <Container padding>
         <Text type={Constants.TextTypes.H2} bold>
-          {t('Issue Credential')}
+          {t("Issue Credential")}
         </Text>
         <Container marginTop={10}>
           <Text type={Constants.TextTypes.Body}>
-            {t('You are issuing a credential to')}{' '}
+            {t("You are issuing a credential to")}{" "}
             <Text>
-              {viewer.did === subject.did ? t('yourself') : subject.shortId}
+              {viewer.did === subject.did ? t("yourself") : subject.shortId}
             </Text>
           </Text>
           {!subject.did && (
             <Text warn type={Constants.TextTypes.Body}>
-              {t('You must enter a subject identity')}
+              {t("You must enter a subject identity")}
             </Text>
           )}
         </Container>
@@ -176,19 +177,19 @@ const IssueCredential: React.FC<NavigationStackScreenProps> & {
           marginBottom
         >
           <Container
-            flexDirection={'row'}
-            alignItems={'center'}
-            justifyContent={'space-between'}
+            flexDirection={"row"}
+            alignItems={"center"}
+            justifyContent={"space-between"}
           >
             <Container flex={1}>
               <TextInput
-                autoCapitalize={'none'}
-                autoCompleteType={'off'}
+                autoCapitalize={"none"}
+                autoCompleteType={"off"}
                 autoCorrect={false}
                 onFocus={() => openIdentitySelection()}
                 onBlur={() => setIdentitySelect(false)}
-                clearButtonMode={'always'}
-                style={{ fontFamily: 'menlo' }}
+                clearButtonMode={"always"}
+                style={{ fontFamily: "menlo" }}
                 onChangeText={inputSubject}
               >
                 {subject.did}
@@ -199,8 +200,8 @@ const IssueCredential: React.FC<NavigationStackScreenProps> & {
             <Container marginTop>
               {loading && (
                 <Container
-                  flexDirection={'row'}
-                  alignItems={'center'}
+                  flexDirection={"row"}
+                  alignItems={"center"}
                   paddingTop
                 >
                   <ActivityIndicator />
@@ -220,7 +221,7 @@ const IssueCredential: React.FC<NavigationStackScreenProps> & {
                   style={{ padding: 10, borderRadius: 5 }}
                 >
                   <Container>
-                    <Text textStyle={{ fontFamily: 'menlo' }}>
+                    <Text textStyle={{ fontFamily: "menlo" }}>
                       {viewer.shortId} (you)
                     </Text>
                   </Container>
@@ -238,33 +239,33 @@ const IssueCredential: React.FC<NavigationStackScreenProps> & {
                           style={{ padding: 10, borderRadius: 5 }}
                         >
                           <Container>
-                            <Text textStyle={{ fontFamily: 'menlo' }}>
+                            <Text textStyle={{ fontFamily: "menlo" }}>
                               {identity.shortId}
                             </Text>
                           </Container>
                         </TouchableHighlight>
-                      )
+                      );
                     })}
               </Container>
             </Container>
           )}
         </Container>
 
-        <Container background={'secondary'} padding marginBottom br={5}>
-          {fields.length === 0 && <Text>{t('No claims added yet')}</Text>}
+        <Container background={"secondary"} padding marginBottom br={5}>
+          {fields.length === 0 && <Text>{t("No claims added yet")}</Text>}
           {fields.map((field: Field, index: number) => {
             return (
               <Container
                 key={field.type + index}
                 paddingBottom={5}
-                flexDirection={'row'}
-                alignItems={'center'}
+                flexDirection={"row"}
+                alignItems={"center"}
               >
                 <Container>
-                  <Text textStyle={{ fontFamily: 'menlo' }}>
+                  <Text textStyle={{ fontFamily: "menlo" }}>
                     <Text type={Constants.TextTypes.SubTitle}>
                       {field.type}:
-                    </Text>{' '}
+                    </Text>{" "}
                     {field.value}
                   </Text>
                 </Container>
@@ -277,8 +278,8 @@ const IssueCredential: React.FC<NavigationStackScreenProps> & {
                         size={16}
                         color={Colors.WARN}
                         icon={{
-                          name: 'ios-remove-circle',
-                          iconFamily: 'Ionicons',
+                          name: "ios-remove-circle",
+                          iconFamily: "Ionicons"
                         }}
                       />
                     }
@@ -286,11 +287,11 @@ const IssueCredential: React.FC<NavigationStackScreenProps> & {
                   />
                 </Container>
               </Container>
-            )
+            );
           })}
         </Container>
         <Container
-          background={'primary'}
+          background={"primary"}
           padding
           br={5}
           marginBottom
@@ -299,30 +300,30 @@ const IssueCredential: React.FC<NavigationStackScreenProps> & {
           <TextInput
             value={claimType}
             onChangeText={setClaimType}
-            placeholder={t('Enter claim type')}
+            placeholder={t("Enter claim type")}
             autoCorrect={false}
-            autoCapitalize={'none'}
-            autoCompleteType={'off'}
+            autoCapitalize={"none"}
+            autoCompleteType={"off"}
           />
         </Container>
-        <Container background={'primary'} padding br={5} dividerBottom>
+        <Container background={"primary"} padding br={5} dividerBottom>
           <TextInput
             value={claimValue}
             onChangeText={setClaimValue}
-            placeholder={t('Enter claim value')}
+            placeholder={t("Enter claim value")}
             autoCorrect={false}
-            autoCapitalize={'none'}
-            autoCompleteType={'off'}
+            autoCapitalize={"none"}
+            autoCompleteType={"off"}
           />
         </Container>
-        <Container padding alignItems={'flex-start'}>
+        <Container padding alignItems={"flex-start"}>
           <Button
             iconButton
-            buttonText={'Add claim'}
+            buttonText={"Add claim"}
             icon={
               <Icon
                 color={Colors.CONFIRM}
-                icon={{ name: 'ios-add-circle', iconFamily: 'Ionicons' }}
+                icon={{ name: "ios-add-circle", iconFamily: "Ionicons" }}
               />
             }
             onPress={() =>
@@ -330,14 +331,14 @@ const IssueCredential: React.FC<NavigationStackScreenProps> & {
             }
           />
         </Container>
-        <Container alignItems={'center'}>
+        <Container alignItems={"center"}>
           {errorMessage && <Text warn>{errorMessage}</Text>}
           {sending && (
-            <Container flexDirection={'row'}>
+            <Container flexDirection={"row"}>
               <Container marginRight>
                 <ActivityIndicator />
               </Container>
-              <Text>{sending && t('Issuing credential...')}</Text>
+              <Text>{sending && t("Issuing credential...")}</Text>
             </Container>
           )}
         </Container>
@@ -348,25 +349,25 @@ const IssueCredential: React.FC<NavigationStackScreenProps> & {
               disabled={sending || fields.length === 0 || !subject.did}
               block={Constants.ButtonBlocks.Filled}
               type={Constants.BrandOptions.Primary}
-              buttonText={'Issue'}
+              buttonText={"Issue"}
               onPress={() => signVc(fields)}
             />
           </Container>
         </Container>
       </Container>
     </Screen>
-  )
-}
+  );
+};
 
 IssueCredential.navigationOptions = ({ navigation }: any) => {
   return {
-    title: 'Issue credential',
+    title: "Issue credential",
     headerLeft: () => (
       <HeaderButtons>
-        <Item title={'Cancel'} onPress={navigation.dismiss} />
+        <Item title={"Cancel"} onPress={navigation.dismiss} />
       </HeaderButtons>
-    ),
-  }
-}
+    )
+  };
+};
 
-export default IssueCredential
+export default IssueCredential;

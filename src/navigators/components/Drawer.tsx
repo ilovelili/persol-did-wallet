@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { ScrollView, TouchableHighlight } from 'react-native'
+import * as React from "react";
+import { ScrollView, TouchableHighlight } from "react-native";
 import {
   Text,
   Container,
@@ -8,36 +8,36 @@ import {
   withTheme,
   ListItem,
   Section,
-  Constants,
-} from '@kancha/kancha-ui'
-import { Colors } from '../../theme'
+  Constants
+} from "@kancha/kancha-ui";
+import { Colors } from "../../theme";
 
 // tslint:disable-next-line:no-var-requires
-const profileImage = require('../../assets/images/kitten-avatar.jpg')
+const profileImage = require("../../assets/images/kitten-avatar.jpg");
 
 interface DrawerProps {
-  onItemPress: (scene: any) => void
-  activeItemkey: string
-  theme: any
+  onItemPress: (scene: any) => void;
+  activeItemkey: string;
+  theme: any;
 }
 
 const Drawer: React.FC<DrawerProps> = props => {
   return (
-    <Container flex={1} background={'secondary'}>
+    <Container flex={1} background={"secondary"}>
       <ScrollView>
         <Container
-          background={'secondary'}
+          background={"secondary"}
           padding={true}
-          flexDirection={'row'}
-          alignItems={'center'}
+          flexDirection={"row"}
+          alignItems={"center"}
           marginTop={50}
         >
           <Avatar
             source={profileImage}
-            address={'0x2dgu'}
+            address={"0x2dgu"}
             border={true}
             size={48}
-            type={'rounded'}
+            type={"rounded"}
           />
           <Container paddingLeft={10}>
             <Text bold={true} type={Constants.TextTypes.H3}>
@@ -56,14 +56,14 @@ const Drawer: React.FC<DrawerProps> = props => {
               hideForwardArrow
               onPress={() =>
                 props.onItemPress({
-                  route: { routeName: 'Home', key: 'Home' },
-                  focused: false,
+                  route: { routeName: "Home", key: "Home" },
+                  focused: false
                 })
               }
               iconLeft={
                 <Icon
                   color={Colors.CHARCOAL}
-                  icon={{ name: 'ios-settings', iconFamily: 'Ionicons' }}
+                  icon={{ name: "ios-settings", iconFamily: "Ionicons" }}
                 />
               }
             >
@@ -74,14 +74,14 @@ const Drawer: React.FC<DrawerProps> = props => {
               hideForwardArrow
               onPress={() =>
                 props.onItemPress({
-                  route: { routeName: 'Developer', key: 'Developer' },
-                  focused: false,
+                  route: { routeName: "Developer", key: "Developer" },
+                  focused: false
                 })
               }
               iconLeft={
                 <Icon
                   color={Colors.CHARCOAL}
-                  icon={{ name: 'ios-settings', iconFamily: 'Ionicons' }}
+                  icon={{ name: "ios-settings", iconFamily: "Ionicons" }}
                 />
               }
             >
@@ -101,7 +101,7 @@ const Drawer: React.FC<DrawerProps> = props => {
         </Container>
       </ScrollView>
     </Container>
-  )
-}
+  );
+};
 
-export default withTheme(Drawer)
+export default withTheme(Drawer);

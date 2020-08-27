@@ -1,66 +1,66 @@
-import React, { useRef, useState, useEffect } from 'react'
-import { TextInput } from 'react-native'
-import { Container } from '@kancha/kancha-ui'
-import { HeaderButtons, Item } from 'react-navigation-header-buttons'
-import { Colors } from '../../theme'
-import { Transitioning, Transition } from 'react-native-reanimated'
+import React, { useRef, useState, useEffect } from "react";
+import { TextInput } from "react-native";
+import { Container } from "@kancha/kancha-ui";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import { Colors } from "../../theme";
+import { Transitioning, Transition } from "react-native-reanimated";
 
 interface SearchBarProps {
-  onFocus: () => void
-  cancel: () => void
-  searchActive: boolean
+  onFocus: () => void;
+  cancel: () => void;
+  searchActive: boolean;
 }
 export default ({ onFocus, cancel, searchActive }: SearchBarProps) => {
-  const inputRef = useRef<any>()
-  const transitionRef = useRef<any>()
+  const inputRef = useRef<any>();
+  const transitionRef = useRef<any>();
 
-  const [active, toggleActive] = useState(searchActive)
+  const [active, toggleActive] = useState(searchActive);
 
   const transition = (
-    <Transition.Change durationMs={150} interpolation={'easeInOut'} />
-  )
+    <Transition.Change durationMs={150} interpolation={"easeInOut"} />
+  );
 
   const cancelAndBlur = () => {
     if (transitionRef.current) {
-      transitionRef.current.animateNextTransition()
+      transitionRef.current.animateNextTransition();
     }
-    cancel()
-    toggleActive(false)
-    inputRef.current.blur()
-  }
+    cancel();
+    toggleActive(false);
+    inputRef.current.blur();
+  };
 
   const focusActivate = () => {
     if (transitionRef.current) {
-      transitionRef.current.animateNextTransition()
+      transitionRef.current.animateNextTransition();
     }
-    toggleActive(true)
-    onFocus()
-  }
+    toggleActive(true);
+    onFocus();
+  };
 
   return (
     <Transitioning.View
       transition={transition}
       ref={transitionRef}
       style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "flex-start"
       }}
     >
       <Container flex={1}>
         <TextInput
-          autoCapitalize={'none'}
+          autoCapitalize={"none"}
           autoCorrect={false}
-          autoCompleteType={'off'}
+          autoCompleteType={"off"}
           ref={inputRef}
           onFocus={focusActivate}
-          clearButtonMode={'while-editing'}
-          placeholder={'Search data'}
+          clearButtonMode={"while-editing"}
+          placeholder={"Search data"}
           style={{
             backgroundColor: Colors.LIGHTEST_GREY,
             paddingVertical: 8,
             paddingHorizontal: 10,
-            borderRadius: 10,
+            borderRadius: 10
           }}
         />
       </Container>
@@ -68,9 +68,9 @@ export default ({ onFocus, cancel, searchActive }: SearchBarProps) => {
         viewStyle={{ marginRight: active ? 0 : -80, opacity: active ? 1 : 0 }}
       >
         <HeaderButtons>
-          <Item title={'Cancel'} onPress={cancelAndBlur} />
+          <Item title={"Cancel"} onPress={cancelAndBlur} />
         </HeaderButtons>
       </Container>
     </Transitioning.View>
-  )
-}
+  );
+};

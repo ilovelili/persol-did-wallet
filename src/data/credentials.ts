@@ -1,9 +1,4 @@
-import {
-  startOfYesterday,
-  getTime,
-  endOfTomorrow,
-  endOfYesterday,
-} from 'date-fns'
+import { startOfYesterday, getTime, endOfTomorrow, endOfYesterday } from 'date-fns'
 
 export const selectiveDisclosureRequest = {
   type: 'sdr',
@@ -11,7 +6,7 @@ export const selectiveDisclosureRequest = {
   iss: {
     shortId: 'Dummy Requestor',
     did: '0x1323454',
-    avatar: { uri: '' },
+    avatar: { uri: '' }
   },
   sub: { name: 'Test', did: '0x1323454', avatar: { uri: '' }, shortId: 'test' },
   sdr: [
@@ -26,23 +21,23 @@ export const selectiveDisclosureRequest = {
           jwt: 'fyjsryksyjwryjh',
           id: '01',
           type: 'name',
-          value: 'Jack',
+          value: 'Jack'
         },
         {
           iss: { shortId: 'Onfido' },
           jwt: 'yuktyjhtr',
           id: '02',
           type: 'name',
-          value: 'Joe',
+          value: 'Joe'
         },
         {
           iss: { shortId: 'The Pope' },
           jwt: '23r2efwe',
           id: '03',
           type: 'name',
-          value: 'Jimmy',
-        },
-      ],
+          value: 'Jimmy'
+        }
+      ]
     },
     {
       iss: [],
@@ -55,23 +50,23 @@ export const selectiveDisclosureRequest = {
           jwt: 'asrgaerverf',
           id: '01',
           type: 'dateOfBirth',
-          value: '11/02/1981',
+          value: '11/02/1981'
         },
         {
           iss: { shortId: 'Onfido' },
           jwt: 'yuktyjhtr',
           id: '02',
           type: 'dateOfBirth',
-          value: '11/02/1980',
+          value: '11/02/1980'
         },
         {
           iss: { shortId: 'The Pope' },
           jwt: '23r2efwe',
           id: '03',
           type: 'dateOfBirth',
-          value: '11/02/1983',
-        },
-      ],
+          value: '11/02/1983'
+        }
+      ]
     },
     {
       iss: [],
@@ -84,25 +79,25 @@ export const selectiveDisclosureRequest = {
           jwt: 'ddddd',
           id: '01',
           type: 'phone',
-          value: '009823-28292',
+          value: '009823-28292'
         },
         {
           iss: { shortId: 'Onfido' },
           jwt: 'ssssss',
           id: '02',
           type: 'name',
-          value: '0098272829-2',
+          value: '0098272829-2'
         },
         {
           iss: { shortId: 'The Pope' },
           jwt: 'eeeee',
           id: '03',
           type: 'name',
-          value: '002893736',
-        },
-      ],
-    },
-  ],
+          value: '002893736'
+        }
+      ]
+    }
+  ]
 }
 
 export const sertoVerifiableCredential = {
@@ -120,16 +115,16 @@ export const sertoVerifiableCredential = {
       children: [
         {
           name: 'Bob',
-          age: 4,
+          age: 4
         },
         {
           name: 'Alice',
-          age: 9,
-        },
-      ],
-    },
+          age: 9
+        }
+      ]
+    }
   },
-  vc: [],
+  vc: []
 }
 
 export const bankVerifiableCredential = {
@@ -144,10 +139,10 @@ export const bankVerifiableCredential = {
       name: 'Alice Chainy',
       dateOfBirth: '22-01-75',
       country: 'China',
-      approvedLimit: 30000000,
-    },
+      approvedLimit: 30000000
+    }
   },
-  vc: [],
+  vc: []
 }
 
 export const galleryAdmission = {
@@ -161,8 +156,8 @@ export const galleryAdmission = {
     'Admit One': {
       addmission: 'One Person',
       access: 'Zone A - Zone F',
-      type: 'Single Use',
-    },
+      type: 'Single Use'
+    }
   },
-  vc: [],
+  vc: []
 }

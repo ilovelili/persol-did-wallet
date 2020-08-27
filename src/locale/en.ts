@@ -8,8 +8,8 @@ export default {
     Environment: 'Environment',
     Signer: 'Signer',
     English: 'English',
-    Spanish: 'Spanish',
+    Japanese: 'Japanese',
     CrashReporting: 'Crash Reporting',
-    Connections: 'Connections',
-  },
+    Connections: 'Connections'
+  }
 }

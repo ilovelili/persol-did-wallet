@@ -1,23 +1,23 @@
-import React from 'react'
-import { ScrollView } from 'react-native'
-import { Container, Typings, Connection, withTheme } from '@kancha/kancha-ui'
+import React from "react";
+import { ScrollView } from "react-native";
+import { Container, Typings, Connection, withTheme } from "@kancha/kancha-ui";
 
 interface Identity extends Typings.Identity {
-  isSelected: boolean
-  isManaged: boolean
-  profileImage?: string
+  isSelected: boolean;
+  isManaged: boolean;
+  profileImage?: string;
 }
 
 interface ContactsHeaderProps {
-  identities: Identity[]
-  viewProfile: (did: string) => void
-  theme: any
+  identities: Identity[];
+  viewProfile: (did: string) => void;
+  theme: any;
 }
 
 const ContactsHeader: React.FC<ContactsHeaderProps> = ({
   identities,
   viewProfile,
-  theme,
+  theme
 }) => {
   return (
     <ScrollView
@@ -25,15 +25,15 @@ const ContactsHeader: React.FC<ContactsHeaderProps> = ({
       showsHorizontalScrollIndicator={false}
       style={{
         backgroundColor: theme.colors.primary.background,
-        marginBottom: 1,
+        marginBottom: 1
       }}
     >
-      <Container flexDirection={'row'}>
+      <Container flexDirection={"row"}>
         {identities &&
           identities
             .sort(
               (id1: Identity, id2: Identity) =>
-                (id2.isSelected ? 1 : 0) - (id1.isSelected ? 1 : 0),
+                (id2.isSelected ? 1 : 0) - (id1.isSelected ? 1 : 0)
             )
             .map((identity: Typings.Identity & { isManaged: boolean }) => {
               return (
@@ -45,11 +45,11 @@ const ContactsHeader: React.FC<ContactsHeaderProps> = ({
                   profileImage={identity.profileImage}
                   isManaged={identity.isManaged}
                 />
-              )
+              );
             })}
       </Container>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default withTheme(ContactsHeader)
+export default withTheme(ContactsHeader);

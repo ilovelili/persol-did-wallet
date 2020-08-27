@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Screen,
@@ -9,81 +9,81 @@ import {
   Toaster,
   Typings,
   Indicator,
-  Text,
-} from '@kancha/kancha-ui'
-import { NavigationStackScreenProps } from 'react-navigation-stack'
-import { Colors } from '../../theme'
-import { useMutation } from 'react-apollo'
-import { SIGN_VP, SEND_JWT_MUTATION } from '../../lib/graphql/queries'
-import { ActivityIndicator, ActivityIndicatorBase } from 'react-native'
-import navigationService from 'Serto/src/navigators/navigationService'
+  Text
+} from "@kancha/kancha-ui";
+import { NavigationStackScreenProps } from "react-navigation-stack";
+import { Colors } from "../../theme";
+import { useMutation } from "react-apollo";
+import { SIGN_VP, SEND_JWT_MUTATION } from "../../lib/graphql/queries";
+import { ActivityIndicator, ActivityIndicatorBase } from "react-native";
+import navigationService from "Serto/src/navigators/navigationService";
 
 // tslint:disable-next-line:no-var-requires
-const bannerImage = require('../../assets/images/abstract-blurred-gradient.jpg')
+const bannerImage = require("../../assets/images/abstract-blurred-gradient.jpg");
 
 interface ValidationState {
   [index: string]: {
-    required: boolean
-    jwt: string | null
-  }
+    required: boolean;
+    jwt: string | null;
+  };
 }
 
 const Component: React.FC<NavigationStackScreenProps> = props => {
-  const requestMessage = props.navigation.getParam('requestMessage')
-  const viewerDid = props.navigation.getParam('viewerDid')
-  const [sending, updateSending] = useState<boolean>(false)
-  const [selected, updateSelected] = useState<ValidationState>({})
-  const [formValid, setValid] = useState(true)
+  const requestMessage = props.navigation.getParam("requestMessage");
+  const viewerDid = props.navigation.getParam("viewerDid");
+  const [sending, updateSending] = useState<boolean>(false);
+  const [selected, updateSelected] = useState<ValidationState>({});
+  const [formValid, setValid] = useState(true);
 
   const checkValidity = () => {
-    let valid = true
+    let valid = true;
     Object.keys(selected).map(key => {
       if (selected[key].required && !selected[key].jwt) {
-        valid = false
+        valid = false;
       }
-    })
+    });
 
-    setValid(valid)
-  }
+    setValid(valid);
+  };
 
   const [actionSendJwt] = useMutation(SEND_JWT_MUTATION, {
     onCompleted: response => {
       if (response.actionSendJwt) {
-        updateSending(false)
+        updateSending(false);
         Toaster.confirm(
-          'Response sent',
-          `Your response was sent to ${requestMessage.sender.shortId}`,
-        )
-        props.navigation.goBack()
+          "Response sent",
+          `Your response was sent to ${requestMessage.sender.shortId}`
+        );
+        props.navigation.goBack();
       }
     },
     onError: error => {
-      console.log(error)
-    },
-  })
+      console.log(error);
+    }
+  });
   const [actionSignVp] = useMutation(SIGN_VP, {
     onCompleted: response => {
       if (response.actionSignVp) {
-        updateSending(true)
+        updateSending(true);
         actionSendJwt({
           variables: {
             to: requestMessage.sender.did,
             from: viewerDid,
-            jwt: response.actionSignVp,
-          },
-        })
+            jwt: response.actionSignVp
+          }
+        });
       }
     },
     onError: error => {
-      console.log(error)
-    },
-  })
+      console.log(error);
+    }
+  });
 
   const accept = () => {
     if (formValid) {
       const selectedVp = Object.keys(selected)
         .map(key => selected[key].jwt)
-        .filter(item => item)
+        .filter(item => item);
 
       const payload = {
         variables: {
@@ -92,54 +92,54 @@ const Component: React.FC<NavigationStackScreenProps> = props => {
             aud: requestMessage.sender.did,
             tag: requestMessage.threadId,
             vp: {
-              context: ['https://www.w3.org/2018/credentials/v1'],
-              type: ['VerifiablePresentation'],
-              verifiableCredential: selectedVp,
-            },
-          },
-        },
-      }
-      actionSignVp(payload)
+              context: ["https://www.w3.org/2018/credentials/v1"],
+              type: ["VerifiablePresentation"],
+              verifiableCredential: selectedVp
+            }
+          }
+        }
+      };
+      actionSignVp(payload);
     }
-  }
+  };
 
   const onSelectItem = (
     id: string | null,
     jwt: string | null,
-    claimType: string,
+    claimType: string
   ) => {
     const updatedSelection = {
       ...selected,
-      [claimType]: { ...selected[claimType], jwt },
-    }
+      [claimType]: { ...selected[claimType], jwt }
+    };
 
-    updateSelected(updatedSelection)
-  }
-
-  useEffect(() => {
-    checkValidity()
-  }, [selected])
+    updateSelected(updatedSelection);
+  };
 
   useEffect(() => {
-    let defaultSelected: ValidationState = {}
+    checkValidity();
+  }, [selected]);
+
+  useEffect(() => {
+    let defaultSelected: ValidationState = {};
     requestMessage.sdr.map((sdr: any) => {
       if (sdr && sdr.essential) {
         if (sdr.vc.length) {
           defaultSelected[sdr.claimType] = {
             required: true,
-            jwt: sdr.vc[0].jwt,
-          }
+            jwt: sdr.vc[0].jwt
+          };
         } else {
           defaultSelected[sdr.claimType] = {
             required: true,
-            jwt: null,
-          }
-          setValid(false)
+            jwt: null
+          };
+          setValid(false);
         }
       }
-    })
-    updateSelected(defaultSelected)
-  }, [])
+    });
+    updateSelected(defaultSelected);
+  }, []);
 
   return (
     <Screen
@@ -155,25 +155,25 @@ const Component: React.FC<NavigationStackScreenProps> = props => {
         >
           {sending && (
             <Container
-              flexDirection={'row'}
-              alignItems={'center'}
-              justifyContent={'center'}
+              flexDirection={"row"}
+              alignItems={"center"}
+              justifyContent={"center"}
             >
-              <ActivityIndicator size={'small'} />
+              <ActivityIndicator size={"small"} />
               <Container marginLeft>
                 <Text>Sending response</Text>
               </Container>
             </Container>
           )}
-          <Container alignItems={'center'} paddingBottom>
-            <Text warn>{formValid ? '' : 'There are some missing fields'}</Text>
+          <Container alignItems={"center"} paddingBottom>
+            <Text warn>{formValid ? "" : "There are some missing fields"}</Text>
           </Container>
-          <Container flexDirection={'row'}>
+          <Container flexDirection={"row"}>
             <Container flex={1}>
               <Button
                 block={Constants.ButtonBlocks.Clear}
                 type={Constants.BrandOptions.Warning}
-                buttonText={'Later'}
+                buttonText={"Later"}
                 onPress={() => props.navigation.goBack()}
               />
             </Container>
@@ -182,7 +182,7 @@ const Component: React.FC<NavigationStackScreenProps> = props => {
                 disabled={sending || !formValid}
                 block={Constants.ButtonBlocks.Filled}
                 type={Constants.BrandOptions.Primary}
-                buttonText={'Share'}
+                buttonText={"Share"}
                 onPress={accept}
                 shadowOpacity={0.2}
               />
@@ -194,12 +194,12 @@ const Component: React.FC<NavigationStackScreenProps> = props => {
       <Container>
         <Banner
           title={requestMessage.sender.shortId}
-          subTitle={'Subtitle'}
+          subTitle={"Subtitle"}
           issuer={requestMessage.sender}
           backgroundImage={bannerImage}
         />
         <Indicator
-          text={'Share your data with ' + requestMessage.sender.shortId}
+          text={"Share your data with " + requestMessage.sender.shortId}
         />
         <Container>
           {requestMessage.sdr.map((sdrRequestField: any, index: number) => {
@@ -214,19 +214,19 @@ const Component: React.FC<NavigationStackScreenProps> = props => {
                 required={sdrRequestField.essential}
                 onSelectItem={onSelectItem}
                 onPressVC={() =>
-                  props.navigation.navigate('Credential', {
+                  props.navigation.navigate("Credential", {
                     sharingModeEnabled: false,
                     credentials: sdrRequestField.vc,
-                    credentialIndex: 0,
+                    credentialIndex: 0
                   })
                 }
               />
-            )
+            );
           })}
         </Container>
       </Container>
     </Screen>
-  )
-}
+  );
+};
 
-export default Component
+export default Component;

@@ -2,12 +2,11 @@ const OnboardingScreens = {
   Restore: { screen: 'Restore', title: 'Restore' },
   Intro: { screen: 'Intro', title: 'Intro' },
   CreatingWallet: { screen: 'CreatingWallet', title: 'Creating Wallet' },
-  Onboarding: { screen: 'Onboarding', title: 'Onboarding' },
+  Onboarding: { screen: 'Onboarding', title: 'Onboarding' }
 }
 
 const MainScreens = {
   Activity: { screen: 'Activity', title: 'Activity' },
-  Explore: { screen: 'Explore', title: 'Explore' },
   Settings: { screen: 'Settings', title: 'Settings' },
   ViewerProfile: { screen: 'ViewerProfile', title: 'Profile' },
   Profile: { screen: 'Profile', title: 'Profile' },
@@ -17,15 +16,15 @@ const MainScreens = {
   Requests: { screen: 'Requests', title: 'Request' },
   CreateFirstCredential: {
     screen: 'CreateFirstCredential',
-    title: 'Create First Credential',
+    title: 'Create First Credential'
   },
   Credential: { screen: 'Credential', title: 'Credential' },
-  CredentialView: { screen: 'CredentialView', title: 'Credential' },
+  CredentialView: { screen: 'CredentialView', title: 'Credential' }
 }
 
 const UserSettingScreens = {
   Security: { screen: 'Security', title: 'Security' },
-  ShowSecret: { screen: 'ShowSecret', title: 'Reveal Secret' },
+  ShowSecret: { screen: 'ShowSecret', title: 'Reveal Secret' }
 }
 
 const DeveloperSettingsScreens = {
@@ -47,14 +46,14 @@ const DeveloperSettingsScreens = {
   Claim: { screen: 'Claim', title: 'Claim Demo' },
   DisclosureRequest: {
     screen: 'DisclosureRequest',
-    title: 'Disclosure Request',
+    title: 'Disclosure Request'
   },
-  Credentials: { screen: 'Credentials', title: 'Credentials' },
+  Credentials: { screen: 'Credentials', title: 'Credentials' }
 }
 
 export const Screens = {
   ...MainScreens,
   ...OnboardingScreens,
   ...UserSettingScreens,
-  ...DeveloperSettingsScreens,
+  ...DeveloperSettingsScreens
 }

@@ -31,7 +31,7 @@ const useDeepLinking = (navigation: any) => {
   return {
     getInitialUrl,
     addListenerForDeepLinks,
-    removeListenerForDeepLinks,
+    removeListenerForDeepLinks
   }
 }
 

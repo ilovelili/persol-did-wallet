@@ -25,7 +25,7 @@ export const typeDefs = [
   DIDComm.DIDCommGql.typeDefs,
   W3c.W3cGql.typeDefs,
   SD.SdrGql.typeDefs,
-  LocalGql.typeDefs,
+  LocalGql.typeDefs
 ]
 
 export const resolvers = merge(
@@ -34,7 +34,7 @@ export const resolvers = merge(
   Daf.Gql.IdentityManager.resolvers,
   W3c.W3cGql.resolvers,
   SD.SdrGql.resolvers,
-  LocalGql.resolvers,
+  LocalGql.resolvers
 )
 
 const dbConnection = createConnection({
@@ -43,7 +43,7 @@ const dbConnection = createConnection({
   location: 'default',
   synchronize: true,
   logging: ['error'],
-  entities: [...Daf.Entities],
+  entities: [...Daf.Entities]
 })
 
 const keyStore = new Daf.KeyStore(dbConnection)
@@ -55,7 +55,7 @@ const rinkebyIdentityProvider = new IdentityProvider({
   kms,
   identityStore,
   network: 'rinkeby',
-  rpcUrl: 'https://rinkeby.infura.io/v3/' + infuraProjectId,
+  rpcUrl: 'https://rinkeby.infura.io/v3/' + infuraProjectId
 })
 
 const messageHandler = new URL.UrlMessageHandler()
@@ -66,16 +66,14 @@ messageHandler
   .setNext(new SD.SdrMessageHandler())
 
 const actionHandler = new DIDComm.DIDCommActionHandler()
-actionHandler
-  .setNext(new W3c.W3cActionHandler())
-  .setNext(new SD.SdrActionHandler())
+actionHandler.setNext(new W3c.W3cActionHandler()).setNext(new SD.SdrActionHandler())
 
 export const agent = new Daf.Agent({
   dbConnection,
   didResolver,
   identityProviders: [rinkebyIdentityProvider],
   actionHandler,
-  messageHandler,
+  messageHandler
 })
 
 export const Message = Daf.Message

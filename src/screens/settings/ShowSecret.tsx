@@ -2,20 +2,20 @@
  * Serto Mobile App
  *
  */
-import React, { useState } from 'react'
-import { NavigationStackScreenProps } from 'react-navigation-stack'
-import { Container, Text, Screen, Constants, Button } from '@kancha/kancha-ui'
-import { Colors } from '../../theme'
-import hexToRgba from 'hex-to-rgba'
-import { useQuery, useLazyQuery } from 'react-apollo'
-import { GET_VIEWER, GET_SECRET_KEY } from '../../lib/graphql/queries'
+import React, { useState } from "react";
+import { NavigationStackScreenProps } from "react-navigation-stack";
+import { Container, Text, Screen, Constants, Button } from "@kancha/kancha-ui";
+import { Colors } from "../../theme";
+import hexToRgba from "hex-to-rgba";
+import { useQuery, useLazyQuery } from "react-apollo";
+import { GET_VIEWER, GET_SECRET_KEY } from "../../lib/graphql/queries";
 
 const ShowSecret: React.FC<NavigationStackScreenProps> = ({ navigation }) => {
-  const { data } = useQuery(GET_VIEWER)
-  const [getSecretKey, secret] = useLazyQuery(GET_SECRET_KEY)
+  const { data } = useQuery(GET_VIEWER);
+  const [getSecretKey, secret] = useLazyQuery(GET_SECRET_KEY);
 
   return (
-    <Screen scrollEnabled={true} background={'primary'}>
+    <Screen scrollEnabled={true} background={"primary"}>
       <Container padding>
         <Text type={Constants.TextTypes.H2} bold>
           Seed Phrase
@@ -40,11 +40,11 @@ const ShowSecret: React.FC<NavigationStackScreenProps> = ({ navigation }) => {
           >
             <Container>
               <Container marginBottom={10}>
-                <Text bold textStyle={{ fontFamily: 'menlo' }} selectable>
+                <Text bold textStyle={{ fontFamily: "menlo" }} selectable>
                   {data && data.viewer && data.viewer.shortId}
                 </Text>
               </Container>
-              <Text textStyle={{ fontFamily: 'menlo' }} selectable>
+              <Text textStyle={{ fontFamily: "menlo" }} selectable>
                 {data && data.viewer && data.viewer.did}
               </Text>
             </Container>
@@ -60,14 +60,14 @@ const ShowSecret: React.FC<NavigationStackScreenProps> = ({ navigation }) => {
             <Button
               fullWidth
               buttonText={`Show Seed Phrase`}
-              type={'warning'}
-              block={'outlined'}
+              type={"warning"}
+              block={"outlined"}
               onPress={() =>
                 getSecretKey({
                   variables: {
                     did: data.viewer.did,
-                    type: 'rinkeby-ethr-did',
-                  },
+                    type: "rinkeby-ethr-did"
+                  }
                 })
               }
             />
@@ -82,16 +82,16 @@ const ShowSecret: React.FC<NavigationStackScreenProps> = ({ navigation }) => {
                 br={5}
               >
                 <Container>
-                  <Text textStyle={{ fontFamily: 'menlo' }} selectable>
+                  <Text textStyle={{ fontFamily: "menlo" }} selectable>
                     {secret.data.managedIdentitySecret}
                   </Text>
                 </Container>
               </Container>
-              <Container marginTop alignItems={'center'}>
+              <Container marginTop alignItems={"center"}>
                 <Text
                   type={Constants.TextTypes.SubTitle}
                   warn
-                  textAlign={'center'}
+                  textAlign={"center"}
                 >
                   Do not share this seed phrase with anyone.
                 </Text>
@@ -101,7 +101,7 @@ const ShowSecret: React.FC<NavigationStackScreenProps> = ({ navigation }) => {
         </Container>
       </Container>
     </Screen>
-  )
-}
+  );
+};
 
-export default ShowSecret
+export default ShowSecret;

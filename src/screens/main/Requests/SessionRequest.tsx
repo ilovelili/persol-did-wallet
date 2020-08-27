@@ -1,65 +1,65 @@
-import React, { useContext } from 'react'
+import React, { useContext } from "react";
 import {
   Container,
   Banner,
   ListItem,
   Indicator,
   Screen,
-  Button,
-} from '@kancha/kancha-ui'
-import { WalletConnectContext } from '../../../providers/WalletConnect'
-import { useNavigation } from 'react-navigation-hooks'
+  Button
+} from "@kancha/kancha-ui";
+import { WalletConnectContext } from "../../../providers/WalletConnect";
+import { useNavigation } from "react-navigation-hooks";
 
 interface RequestProps {
-  peerId: string
-  peerMeta: any
-  selectedIdentity: any
+  peerId: string;
+  peerMeta: any;
+  selectedIdentity: any;
 }
 
 const SessionRequest: React.FC<RequestProps> = ({
   peerId,
   peerMeta,
-  selectedIdentity,
+  selectedIdentity
 }) => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   const {
     walletConnectApproveSessionRequest,
-    walletConnectRejectSessionRequest,
-  } = useContext(WalletConnectContext)
+    walletConnectRejectSessionRequest
+  } = useContext(WalletConnectContext);
 
   const _approveSessionRequest = async () => {
     await walletConnectApproveSessionRequest(peerId, {
       accounts: [selectedIdentity],
-      chainId: 4,
-    })
+      chainId: 4
+    });
 
-    navigation.goBack()
-  }
+    navigation.goBack();
+  };
   const _rejectSessionRequest = () => {
-    walletConnectRejectSessionRequest(peerId)
-  }
+    walletConnectRejectSessionRequest(peerId);
+  };
   return (
     <Screen
       scrollEnabled
       footerComponent={
-        <Container flexDirection={'row'} padding paddingBottom={32}>
+        <Container flexDirection={"row"} padding paddingBottom={32}>
           <Container flex={1} marginRight>
             <Button
-              type={'secondary'}
+              type={"secondary"}
               fullWidth
-              buttonText={'Reject'}
+              buttonText={"Reject"}
               onPress={_rejectSessionRequest}
-              block={'outlined'}
+              block={"outlined"}
             />
           </Container>
           <Container flex={2}>
             <Button
-              type={'primary'}
+              type={"primary"}
               disabled={false}
               fullWidth
-              buttonText={'Connect'}
+              buttonText={"Connect"}
               onPress={_approveSessionRequest}
-              block={'filled'}
+              block={"filled"}
             />
           </Container>
         </Container>
@@ -70,20 +70,20 @@ const SessionRequest: React.FC<RequestProps> = ({
           title={peerMeta.name}
           subTitle={peerMeta.url}
           issuer={{
-            did: '',
-            shortId: '',
-            profileImage: peerMeta && peerMeta.icons[0],
+            did: "",
+            shortId: "",
+            profileImage: peerMeta && peerMeta.icons[0]
           }}
         />
         <Indicator
           text={`${peerMeta && peerMeta.name} is requesting you share`}
         />
-        <ListItem last subTitle={'Your public did'}>
+        <ListItem last subTitle={"Your public did"}>
           {selectedIdentity}
         </ListItem>
       </Container>
     </Screen>
-  )
-}
+  );
+};
 
-export default SessionRequest
+export default SessionRequest;

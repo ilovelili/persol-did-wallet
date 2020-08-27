@@ -5,6 +5,6 @@ export default {
     DISCONNECT: 'disconnect',
     SESSION_REQUEST_INT: 'session_request_internal',
     CALL_REQUEST_INT: 'call_request_internal',
-    DISCONNECT_INT: 'disconnect_internal',
-  },
+    DISCONNECT_INT: 'disconnect_internal'
+  }
 }

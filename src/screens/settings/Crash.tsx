@@ -1,6 +1,6 @@
-import * as React from 'react'
-import { Screen, Container, Button, Constants } from '@kancha/kancha-ui'
-import * as Sentry from '@sentry/react-native'
+import * as React from "react";
+import { Screen, Container, Button, Constants } from "@kancha/kancha-ui";
+import * as Sentry from "@sentry/react-native";
 
 export default () => {
   return (
@@ -10,9 +10,9 @@ export default () => {
           fullWidth
           type={Constants.BrandOptions.Warning}
           block={Constants.ButtonBlocks.Outlined}
-          buttonText={'JS Crash'}
+          buttonText={"JS Crash"}
           onPress={() => {
-            throw new Error('Sample error from developer tools')
+            throw new Error("Sample error from developer tools");
           }}
         />
       </Container>
@@ -21,12 +21,12 @@ export default () => {
           fullWidth
           type={Constants.BrandOptions.Warning}
           block={Constants.ButtonBlocks.Outlined}
-          buttonText={'Native Crash'}
+          buttonText={"Native Crash"}
           onPress={() => {
-            Sentry.nativeCrash()
+            Sentry.nativeCrash();
           }}
         />
       </Container>
     </Screen>
-  )
-}
+  );
+};

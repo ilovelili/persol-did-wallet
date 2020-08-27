@@ -1,24 +1,24 @@
-import React, { useContext, useEffect } from 'react'
-import { Container } from '@kancha/kancha-ui'
-import SessionRequest from './SessionRequest'
-import CredentialAccept from './CredentialAccept'
-import SelectiveDisclosure from './SelectiveDisclosure'
+import React, { useContext, useEffect } from "react";
+import { Container } from "@kancha/kancha-ui";
+import SessionRequest from "./SessionRequest";
+import CredentialAccept from "./CredentialAccept";
+import SelectiveDisclosure from "./SelectiveDisclosure";
 
-import AppConstants from '../../../constants/index'
-import { useNavigationParam } from 'react-navigation-hooks'
-import { AppContext } from '../../../providers/AppContext'
+import AppConstants from "../../../constants/index";
+import { useNavigationParam } from "react-navigation-hooks";
+import { AppContext } from "../../../providers/AppContext";
 
 interface RequestsProps {}
 
 const Requests: React.FC<RequestsProps> = props => {
-  const [selectedIdentity] = useContext(AppContext)
-  const requestType = useNavigationParam('requestType')
-  const peerMeta = useNavigationParam('peerMeta')
-  const peerId = useNavigationParam('peerId')
-  const messageId = useNavigationParam('messageId')
-  const message = useNavigationParam('message')
-  const payload = useNavigationParam('payload')
-  const isWalletConnect = useNavigationParam('isWalletConnect')
+  const [selectedIdentity] = useContext(AppContext);
+  const requestType = useNavigationParam("requestType");
+  const peerMeta = useNavigationParam("peerMeta");
+  const peerId = useNavigationParam("peerId");
+  const messageId = useNavigationParam("messageId");
+  const message = useNavigationParam("message");
+  const payload = useNavigationParam("payload");
+  const isWalletConnect = useNavigationParam("isWalletConnect");
 
   const RequestScreen = () => {
     switch (requestType) {
@@ -29,7 +29,7 @@ const Requests: React.FC<RequestsProps> = props => {
             peerId={peerId}
             selectedIdentity={selectedIdentity}
           />
-        )
+        );
       case AppConstants.requests.CREDENTIAL:
         return (
           <CredentialAccept
@@ -38,7 +38,7 @@ const Requests: React.FC<RequestsProps> = props => {
             message={message}
             payloadId={payload && payload.id}
           />
-        )
+        );
       case AppConstants.requests.DISCLOSURE:
         return (
           <SelectiveDisclosure
@@ -49,13 +49,13 @@ const Requests: React.FC<RequestsProps> = props => {
             isWalletConnect={isWalletConnect}
             selectedIdentity={selectedIdentity}
           />
-        )
+        );
       default:
-        return <Container />
+        return <Container />;
     }
-  }
+  };
 
-  return <RequestScreen />
-}
+  return <RequestScreen />;
+};
 
-export default Requests
+export default Requests;

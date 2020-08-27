@@ -1,30 +1,30 @@
-import React, { useEffect } from 'react'
-import Navigation from './navigators'
-import NavigationService from './navigators/navigationService'
-import Providers from './providers'
-import WalletConnect from './components/WalletConnect'
-import { Toast, OverlaySign } from '@kancha/kancha-ui'
-import IDSwitcher from './navigators/components/Switcher'
-import useDeepLinking from './hooks/useDeepLinking'
-import './lib/I18n'
+import React, { useEffect } from "react";
+import Navigation from "./navigators";
+import NavigationService from "./navigators/navigationService";
+import Providers from "./providers";
+import WalletConnect from "./components/WalletConnect";
+import { Toast, OverlaySign } from "@kancha/kancha-ui";
+import IDSwitcher from "./navigators/components/Switcher";
+import useDeepLinking from "./hooks/useDeepLinking";
+import "./lib/I18n";
 
-type ThemeType = 'light' | 'dark' | 'no-preference'
+type ThemeType = "light" | "dark" | "no-preference";
 
 const App = () => {
   const {
     getInitialUrl,
     addListenerForDeepLinks,
-    removeListenerForDeepLinks,
-  } = useDeepLinking(NavigationService.navigate)
+    removeListenerForDeepLinks
+  } = useDeepLinking(NavigationService.navigate);
 
   useEffect(() => {
-    getInitialUrl()
-    addListenerForDeepLinks()
+    getInitialUrl();
+    addListenerForDeepLinks();
 
     return () => {
-      removeListenerForDeepLinks()
-    }
-  }, [])
+      removeListenerForDeepLinks();
+    };
+  }, []);
 
   return (
     <Providers>
@@ -40,11 +40,11 @@ const App = () => {
               NavigationService.setTopLevelNavigator(navigatorRef)
             }
           />
-          <IDSwitcher id={'SWITCH_IDENTITY'} />
+          <IDSwitcher id={"SWITCH_IDENTITY"} />
         </>
       )}
     </Providers>
-  )
-}
+  );
+};
 
-export default App
+export default App;

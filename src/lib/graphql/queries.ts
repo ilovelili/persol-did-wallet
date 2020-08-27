@@ -49,9 +49,7 @@ export const GET_CREDENTIALS_FOR_IDENTITY = gql`
     identity(did: $selectedIdentity) {
       isSelected
       ...ShortProfile
-      receivedCredentials: credentials(
-        input: { subject: [$selectedIdentity] }
-      ) {
+      receivedCredentials: credentials(input: { subject: [$selectedIdentity] }) {
         hash
         issuer {
           ...ShortProfile
@@ -145,11 +143,7 @@ export const DELETE_IDENTITY = gql`
 `
 
 export const NEW_MESSAGE = gql`
-  mutation handleMessage(
-    $raw: String!
-    $meta: [MetaDataInput]
-    $save: Boolean
-  ) {
+  mutation handleMessage($raw: String!, $meta: [MetaDataInput], $save: Boolean) {
     handleMessage(raw: $raw, meta: $meta, save: $save) {
       type
       credentials {
@@ -174,11 +168,7 @@ export const NEW_MESSAGE = gql`
 `
 
 export const NEW_CREDENTIAL = gql`
-  mutation handleMessage(
-    $raw: String!
-    $meta: [MetaDataInput]
-    $save: Boolean
-  ) {
+  mutation handleMessage($raw: String!, $meta: [MetaDataInput], $save: Boolean) {
     handleMessage(raw: $raw, meta: $meta, save: $save) {
       type
       credentials {
@@ -360,10 +350,7 @@ export const SEND_JWT_MUTATION = gql`
 `
 
 export const SEND_DIDCOMM_MUTATION = gql`
-  mutation sendMessageDidCommAlpha1(
-    $data: SendMessageDidCommAlpha1Input!
-    $url: String
-  ) {
+  mutation sendMessageDidCommAlpha1($data: SendMessageDidCommAlpha1Input!, $url: String) {
     sendMessageDidCommAlpha1(data: $data, url: $url, save: true) {
       id
     }

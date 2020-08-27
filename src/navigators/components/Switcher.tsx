@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { ScrollView } from 'react-native-gesture-handler'
+import React, { useContext } from "react";
+import { ScrollView } from "react-native-gesture-handler";
 import {
   BottomSheet,
   ListItem,
@@ -8,58 +8,58 @@ import {
   Container,
   Button,
   Icon,
-  Overlay,
-} from '@kancha/kancha-ui'
-import { useQuery, useMutation, useApolloClient } from '@apollo/react-hooks'
-import { Theme, Colors } from '../../theme'
+  Overlay
+} from "@kancha/kancha-ui";
+import { useQuery, useMutation, useApolloClient } from "@apollo/react-hooks";
+import { Theme, Colors } from "../../theme";
 import {
   GET_MANAGED_IDENTITIES,
   SET_VIEWER,
-  CREATE_IDENTITY,
-} from '../../lib/graphql/queries'
-import AppConstants from '../../constants'
-import { AppContext } from '../../providers/AppContext'
+  CREATE_IDENTITY
+} from "../../lib/graphql/queries";
+import AppConstants from "../../constants";
+import { AppContext } from "../../providers/AppContext";
 
-const { SWITCHED_IDENTITY } = AppConstants.modals
+const { SWITCHED_IDENTITY } = AppConstants.modals;
 
 interface Identity {
-  did: string
-  shortId: string
-  isSelected: boolean
-  profileImage?: string
+  did: string;
+  shortId: string;
+  isSelected: boolean;
+  profileImage?: string;
 }
 
 interface SwitcherProps {
-  id: string
+  id: string;
 }
 
 const Switcher: React.FC<SwitcherProps> = ({ id }) => {
-  const client = useApolloClient()
-  const [selectedIdentity, setSelectedIdentity] = useContext(AppContext)
-  const { data } = useQuery(GET_MANAGED_IDENTITIES)
+  const client = useApolloClient();
+  const [selectedIdentity, setSelectedIdentity] = useContext(AppContext);
+  const { data } = useQuery(GET_MANAGED_IDENTITIES);
   const [createIdentity] = useMutation(CREATE_IDENTITY, {
     refetchQueries: [{ query: GET_MANAGED_IDENTITIES }],
     variables: {
-      type: 'rinkeby-ethr-did',
-    },
-  })
+      type: "rinkeby-ethr-did"
+    }
+  });
 
   const managedIdentities =
-    data && data.managedIdentities && data.managedIdentities
+    data && data.managedIdentities && data.managedIdentities;
 
   const switchIdentity = async (identity: Identity) => {
-    setSelectedIdentity(identity.did)
-    await client.reFetchObservableQueries()
+    setSelectedIdentity(identity.did);
+    await client.reFetchObservableQueries();
 
-    BottomSnap.close(id)
+    BottomSnap.close(id);
 
     Overlay.show(
       SWITCHED_IDENTITY.title,
       SWITCHED_IDENTITY.message,
       SWITCHED_IDENTITY.icon,
-      SWITCHED_IDENTITY.delay,
-    )
-  }
+      SWITCHED_IDENTITY.delay
+    );
+  };
 
   return (
     <BottomSheet id={id} scrollEnabled>
@@ -69,12 +69,12 @@ const Switcher: React.FC<SwitcherProps> = ({ id }) => {
             managedIdentities
               .sort(
                 (id1: Identity, id2: Identity) =>
-                  (id2.isSelected ? 1 : 0) - (id1.isSelected ? 1 : 0),
+                  (id2.isSelected ? 1 : 0) - (id1.isSelected ? 1 : 0)
               )
               .map((identity: Identity) => {
                 const source = identity.profileImage
                   ? { source: { uri: identity.profileImage } }
-                  : {}
+                  : {};
                 return (
                   <Container key={identity.did}>
                     <ListItem
@@ -87,24 +87,24 @@ const Switcher: React.FC<SwitcherProps> = ({ id }) => {
                           {...source}
                           size={45}
                           address={identity.did}
-                          type={'circle'}
-                          gravatarType={'retro'}
+                          type={"circle"}
+                          gravatarType={"retro"}
                         />
                       }
                     >
                       {identity.shortId}
                     </ListItem>
                   </Container>
-                )
+                );
               })}
-          <Container padding alignItems={'center'} dividerTop>
+          <Container padding alignItems={"center"} dividerTop>
             <Button
               iconButton
-              buttonText={'Create identity'}
+              buttonText={"Create identity"}
               icon={
                 <Icon
                   color={Colors.CONFIRM}
-                  icon={{ name: 'ios-add-circle', iconFamily: 'Ionicons' }}
+                  icon={{ name: "ios-add-circle", iconFamily: "Ionicons" }}
                 />
               }
               onPress={() => createIdentity()}
@@ -113,7 +113,7 @@ const Switcher: React.FC<SwitcherProps> = ({ id }) => {
         </ScrollView>
       )}
     </BottomSheet>
-  )
-}
+  );
+};
 
-export default Switcher
+export default Switcher;

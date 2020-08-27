@@ -1,69 +1,69 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import {
   Container,
   Screen,
   Credential,
   Text,
   Constants,
-  Button,
-} from '@kancha/kancha-ui'
-import { useNavigation, useNavigationParam } from 'react-navigation-hooks'
+  Button
+} from "@kancha/kancha-ui";
+import { useNavigation, useNavigationParam } from "react-navigation-hooks";
 
 interface CredentialViewProps {}
 
 const CredentialView: React.FC<CredentialViewProps> = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
-  const message = useNavigationParam('message')
-  const credentials = useNavigationParam('credentials')
-  const handleMessage = useNavigationParam('handleMessage')
+  const message = useNavigationParam("message");
+  const credentials = useNavigationParam("credentials");
+  const handleMessage = useNavigationParam("handleMessage");
 
   const saveMessage = () => {
     handleMessage({
       variables: {
         raw: message,
-        metaData: [{ type: 'reviewed' }],
-        save: true,
-      },
-    })
+        metaData: [{ type: "reviewed" }],
+        save: true
+      }
+    });
 
-    navigation.goBack()
-  }
+    navigation.goBack();
+  };
 
   const useShortId = (identity: any) => {
     if (identity.shortId) {
-      return identity
+      return identity;
     }
-    const shortDid = `${identity.did.slice(0, 15)}...${identity.did.slice(-4)}`
+    const shortDid = `${identity.did.slice(0, 15)}...${identity.did.slice(-4)}`;
 
     return {
       ...identity,
-      shortId: shortDid,
-    }
-  }
+      shortId: shortDid
+    };
+  };
 
   return (
     <Screen
       safeAreaTop
       footerComponent={
-        <Container flexDirection={'row'} padding paddingBottom={32}>
+        <Container flexDirection={"row"} padding paddingBottom={32}>
           <Container flex={1} marginRight>
             <Button
-              type={'secondary'}
+              type={"secondary"}
               fullWidth
-              buttonText={'Done'}
+              buttonText={"Done"}
               onPress={() => navigation.goBack()}
-              block={'outlined'}
+              block={"outlined"}
             />
           </Container>
           <Container flex={2}>
             <Button
-              type={'primary'}
+              type={"primary"}
               disabled={false}
               fullWidth
-              buttonText={'Save'}
+              buttonText={"Save"}
               onPress={saveMessage}
-              block={'filled'}
+              block={"filled"}
             />
           </Container>
         </Container>
@@ -79,7 +79,7 @@ const CredentialView: React.FC<CredentialViewProps> = () => {
           return (
             <Credential
               key={vc.hash}
-              background={'primary'}
+              background={"primary"}
               detailMode
               jwt={vc.raw}
               issuer={useShortId(vc.issuer)}
@@ -87,11 +87,11 @@ const CredentialView: React.FC<CredentialViewProps> = () => {
               fields={vc.claims}
               exp={vc.expirationDate}
             />
-          )
+          );
         })}
       </Container>
     </Screen>
-  )
-}
+  );
+};
 
-export default CredentialView
+export default CredentialView;

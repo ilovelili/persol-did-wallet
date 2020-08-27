@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
-import { ALL_MESSAGES, GET_ALL_IDENTITIES } from '../../lib/graphql/queries'
-import { FlatList } from 'react-native'
-import { NavigationStackScreenProps } from 'react-navigation-stack'
+import React, { useContext } from "react";
+import { ALL_MESSAGES, GET_ALL_IDENTITIES } from "../../lib/graphql/queries";
+import { FlatList } from "react-native";
+import { NavigationStackScreenProps } from "react-navigation-stack";
 import {
   Container,
   Text,
@@ -11,70 +11,70 @@ import {
   Device,
   Constants,
   Credential,
-  Loader,
-} from '@kancha/kancha-ui'
-import ContactsHeader from '../../navigators/components/ContactsHeader'
-import { Colors } from '../../theme'
-import { useQuery } from 'react-apollo'
-import { AppContext } from '../../providers/AppContext'
-import AppConstants from '../../constants'
+  Loader
+} from "@kancha/kancha-ui";
+import ContactsHeader from "../../navigators/components/ContactsHeader";
+import { Colors } from "../../theme";
+import { useQuery } from "react-apollo";
+import { AppContext } from "../../providers/AppContext";
+import AppConstants from "../../constants";
 
 interface Props extends NavigationStackScreenProps {}
 
 const Activity: React.FC<Props> = ({ navigation }) => {
-  const [selectedIdentity] = useContext(AppContext)
+  const [selectedIdentity] = useContext(AppContext);
   const { data: allIdentities, loading: allIdentitiesLoading } = useQuery(
-    GET_ALL_IDENTITIES,
-  )
+    GET_ALL_IDENTITIES
+  );
   const {
     data: allMessages,
     loading: allMessagesLoading,
     error: allMessagesError,
-    refetch: refetchAllMessages,
+    refetch: refetchAllMessages
   } = useQuery(ALL_MESSAGES, {
     variables: {
-      selectedIdentity: selectedIdentity,
-    },
-  })
+      selectedIdentity: selectedIdentity
+    }
+  });
 
   const showFirstLoadModal = () => {
-    navigation.navigate('CreateFirstCredential', {
+    navigation.navigate("CreateFirstCredential", {
       did: selectedIdentity,
-      fetchMessages: refetchAllMessages,
-    })
-  }
+      fetchMessages: refetchAllMessages
+    });
+  };
 
   const viewAttachments = (credentials: any[], credentialIndex: number) => {
-    navigation.navigate('CredentialDetail', {
+    navigation.navigate("CredentialDetail", {
       credentials,
-      credentialIndex,
-    })
-  }
+      credentialIndex
+    });
+  };
 
   const viewProfile = (did: any) => {
-    navigation.navigate('Profile', {
+    navigation.navigate("Profile", {
       did,
-      isViewer: selectedIdentity === did,
-    })
-  }
+      isViewer: selectedIdentity === did
+    });
+  };
 
   const confirmRequest = (msg: any) => {
-    const requestType = AppConstants.requests.DISCLOSURE
+    const requestType = AppConstants.requests.DISCLOSURE;
 
-    navigation.navigate('Requests', {
+    navigation.navigate("Requests", {
       requestType,
       peerId: null,
       peerMeta: null,
       payload: null,
-      messageId: msg && msg.id,
-    })
-  }
+      messageId: msg && msg.id
+    });
+  };
 
   return (
-    <Screen background={'secondary'} safeArea={true}>
+    <Screen background={"secondary"} safeArea={true}>
       <Container flex={1}>
         {allMessagesLoading && (
-          <Loader width={180} text={'Loading activity...'} />
+          <Loader width={180} text={"Loading activity..."} />
         )}
         {allMessagesError ? (
           <Text>Error</Text>
@@ -101,11 +101,11 @@ const Activity: React.FC<Props> = ({ navigation }) => {
                   viewer={item.viewer}
                   confirm={() => confirmRequest(item)}
                   profileAction={() => {}}
-                  actions={['Share']}
+                  actions={["Share"]}
                   attachments={item.credentials}
                   renderAttachment={(
                     credential: any,
-                    credentialIndex: number,
+                    credentialIndex: number
                   ) => (
                     <Container
                       w={Device.width - 40}
@@ -122,18 +122,18 @@ const Activity: React.FC<Props> = ({ navigation }) => {
                         subject={credential.subject}
                         issuer={credential.issuer}
                         shadow={1.5}
-                        background={'primary'}
+                        background={"primary"}
                       />
                     </Container>
                   )}
                 />
-              )
+              );
             }}
             keyExtractor={(item, index) => item.id + index}
             ListEmptyComponent={
               <Container>
                 {!allMessagesLoading && (
-                  <Container padding background={'secondary'}>
+                  <Container padding background={"secondary"}>
                     <Text bold type={Constants.TextTypes.H3}>
                       Hey there,
                     </Text>
@@ -146,7 +146,7 @@ const Activity: React.FC<Props> = ({ navigation }) => {
                     </Container>
                     <Button
                       fullWidth
-                      buttonText={'Get started'}
+                      buttonText={"Get started"}
                       onPress={showFirstLoadModal}
                       type={Constants.BrandOptions.Primary}
                       block={Constants.ButtonBlocks.Outlined}
@@ -155,17 +155,17 @@ const Activity: React.FC<Props> = ({ navigation }) => {
                 )}
                 {[1, 2, 3, 4].map((fakeItem: number) => (
                   <Container
-                    background={'primary'}
+                    background={"primary"}
                     padding
                     marginBottom={5}
                     key={fakeItem}
                   >
                     <Container
-                      background={'secondary'}
+                      background={"secondary"}
                       viewStyle={{ borderRadius: 20, width: 40, height: 40 }}
                     ></Container>
                     <Container
-                      background={'secondary'}
+                      background={"secondary"}
                       h={90}
                       br={10}
                       marginTop={20}
@@ -178,7 +178,7 @@ const Activity: React.FC<Props> = ({ navigation }) => {
         )}
       </Container>
     </Screen>
-  )
-}
+  );
+};
 
-export default Activity
+export default Activity;

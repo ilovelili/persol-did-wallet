@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react'
-import { core } from '../../lib/setup'
-import NavigationService from '../navigationService'
-import * as Daf from 'daf-core'
+import React, { useEffect } from "react";
+import { core } from "../../lib/setup";
+import NavigationService from "../navigationService";
+import * as Daf from "daf-core";
 
-import { useQuery } from 'react-apollo'
-import { GET_VIEWER } from '../../lib/graphql/queries'
+import { useQuery } from "react-apollo";
+import { GET_VIEWER } from "../../lib/graphql/queries";
 
 const App = () => {
-  const { data } = useQuery(GET_VIEWER)
+  const { data } = useQuery(GET_VIEWER);
 
   useEffect(() => {
     core.on(Daf.EventTypes.validatedMessage, async (message: Daf.Message) => {
       if (
-        (data && data.viewer && data.viewer.did && message.type === 'sdr',
+        (data && data.viewer && data.viewer.did && message.type === "sdr",
         data.viewer.did !== message.sender)
       ) {
         // NavigationService.navigate('Request', {
@@ -20,10 +20,10 @@ const App = () => {
         //   viewerDid: data.viewer.did,
         // })
       }
-    })
-  }, [])
+    });
+  }, []);
 
-  return <></>
-}
+  return <></>;
+};
 
-export default App
+export default App;

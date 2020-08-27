@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { Container, Modal, Text, Constants } from '@kancha/kancha-ui'
-import { NavigationScreenProps } from 'react-navigation'
-import { Colors } from '../../theme'
+import * as React from "react";
+import { Container, Modal, Text, Constants } from "@kancha/kancha-ui";
+import { NavigationScreenProps } from "react-navigation";
+import { Colors } from "../../theme";
 
 interface Props extends NavigationScreenProps {}
 
@@ -68,7 +68,7 @@ const ModalDemoScreen: React.FC<Props> = ({ navigation }) => {
         />
       </Container>
     </Modal>
-  )
-}
+  );
+};
 
-export default ModalDemoScreen
+export default ModalDemoScreen;

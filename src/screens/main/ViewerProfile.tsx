@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext } from "react";
 import {
   Container,
   Text,
@@ -9,61 +9,61 @@ import {
   BottomSnap,
   Credential,
   Icon,
-  Typings,
-} from '@kancha/kancha-ui'
-import { HeaderButtons, Item } from 'react-navigation-header-buttons'
-import TabAvatar from '../../navigators/components/TabAvatar'
-import { NavigationStackScreenProps } from 'react-navigation-stack'
-import { useQuery } from '@apollo/react-hooks'
-import { GET_VIEWER_CREDENTIALS } from '../../lib/graphql/queries'
-import { ActivityIndicator } from 'react-native'
-import { Colors } from '../../theme'
-import hexToRgba from 'hex-to-rgba'
-import { AppContext } from '../../providers/AppContext'
+  Typings
+} from "@kancha/kancha-ui";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import TabAvatar from "../../navigators/components/TabAvatar";
+import { NavigationStackScreenProps } from "react-navigation-stack";
+import { useQuery } from "@apollo/react-hooks";
+import { GET_VIEWER_CREDENTIALS } from "../../lib/graphql/queries";
+import { ActivityIndicator } from "react-native";
+import { Colors } from "../../theme";
+import hexToRgba from "hex-to-rgba";
+import { AppContext } from "../../providers/AppContext";
 
-const SWITCH_IDENTITY = 'SWITCH_IDENTITY'
+const SWITCH_IDENTITY = "SWITCH_IDENTITY";
 
 interface Props extends NavigationStackScreenProps {}
 
 const ViewerProfile: React.FC<Props> & { navigationOptions: any } = ({
-  navigation,
+  navigation
 }) => {
-  const [selectedIdentity] = useContext(AppContext)
+  const [selectedIdentity] = useContext(AppContext);
   const { data, loading } = useQuery(GET_VIEWER_CREDENTIALS, {
     variables: {
-      selectedIdentity,
-    },
-  })
+      selectedIdentity
+    }
+  });
 
-  const viewer = data && data.viewer
-  const credentials = data && data.credentials
+  const viewer = data && data.viewer;
+  const credentials = data && data.credentials;
   const source =
     viewer && data.viewer.profileImage
       ? { source: { uri: viewer.profileImage } }
-      : {}
+      : {};
 
   useEffect(() => {
     if (viewer) {
-      navigation.setParams({ viewer })
+      navigation.setParams({ viewer });
     }
-  }, [data])
+  }, [data]);
 
   return (
-    <Screen scrollEnabled background={'primary'}>
+    <Screen scrollEnabled background={"primary"}>
       {loading && (
         <Container padding flex={1}>
           <Container
             w={100}
             h={100}
             br={5}
-            background={'secondary'}
-            alignItems={'center'}
-            justifyContent={'center'}
+            background={"secondary"}
+            alignItems={"center"}
+            justifyContent={"center"}
           >
-            <ActivityIndicator size={'large'} />
+            <ActivityIndicator size={"large"} />
           </Container>
           <Container marginTop>
-            <Container h={23} br={5} background={'secondary'}></Container>
+            <Container h={23} br={5} background={"secondary"}></Container>
             <Container marginTop>
               <Container
                 h={60}
@@ -80,11 +80,11 @@ const ViewerProfile: React.FC<Props> & { navigationOptions: any } = ({
         <Container padding flex={1}>
           <Avatar
             {...source}
-            type={'rounded'}
+            type={"rounded"}
             size={100}
             address={viewer && viewer.did}
-            gravatarType={'retro'}
-            backgroundColor={'white'}
+            gravatarType={"retro"}
+            backgroundColor={"white"}
           />
           <Container marginTop>
             <Text type={Constants.TextTypes.H2} bold>
@@ -96,7 +96,7 @@ const ViewerProfile: React.FC<Props> & { navigationOptions: any } = ({
                 padding
                 br={5}
               >
-                <Text textStyle={{ fontFamily: 'menlo' }} selectable>
+                <Text textStyle={{ fontFamily: "menlo" }} selectable>
                   {viewer && viewer.did}
                 </Text>
               </Container>
@@ -106,7 +106,7 @@ const ViewerProfile: React.FC<Props> & { navigationOptions: any } = ({
       )}
       <Container padding>
         {!loading && viewer && (
-          <Container flexDirection={'row'}>
+          <Container flexDirection={"row"}>
             <Text type={Constants.TextTypes.H3} bold>
               Credentials
             </Text>
@@ -139,27 +139,27 @@ const ViewerProfile: React.FC<Props> & { navigationOptions: any } = ({
                   <Credential
                     key={vc.hash}
                     onPress={() =>
-                      navigation.navigate('Credential', {
-                        credentials: [vc],
+                      navigation.navigate("Credential", {
+                        credentials: [vc]
                       })
                     }
-                    background={'secondary'}
+                    background={"secondary"}
                     exp={vc.expirationDate}
                     issuer={vc.issuer}
                     subject={vc.subject}
                     fields={vc.claims}
                   />
-                )
+                );
               })}
           </Container>
         )}
       </Container>
     </Screen>
-  )
-}
+  );
+};
 
 ViewerProfile.navigationOptions = ({ navigation }: any) => {
-  const { viewer } = navigation.state.params || {}
+  const { viewer } = navigation.state.params || {};
 
   return {
     headerLeft: () => (
@@ -167,12 +167,12 @@ ViewerProfile.navigationOptions = ({ navigation }: any) => {
         <Button
           iconButton
           onPress={() =>
-            viewer && navigation.navigate('IssueCredential', { viewer })
+            viewer && navigation.navigate("IssueCredential", { viewer })
           }
           icon={
             <Icon
               color={Colors.CHARCOAL}
-              icon={{ name: 'ios-create', iconFamily: 'Ionicons' }}
+              icon={{ name: "ios-create", iconFamily: "Ionicons" }}
               size={30}
             />
           }
@@ -185,8 +185,8 @@ ViewerProfile.navigationOptions = ({ navigation }: any) => {
         iconButton
         icon={<TabAvatar />}
       />
-    ),
-  }
-}
+    )
+  };
+};
 
-export default ViewerProfile
+export default ViewerProfile;

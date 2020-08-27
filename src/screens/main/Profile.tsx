@@ -1,46 +1,46 @@
-import React from 'react'
+import React from "react";
 import {
   Container,
   Text,
   Screen,
   Avatar,
   Constants,
-  Icon,
-} from '@kancha/kancha-ui'
-import { NavigationStackScreenProps } from 'react-navigation-stack'
-import { useQuery } from '@apollo/react-hooks'
-import { GET_IDENTITY } from '../../lib/graphql/queries'
-import { ActivityIndicator } from 'react-native'
-import { Colors } from '../../theme'
-import hexToRgba from 'hex-to-rgba'
+  Icon
+} from "@kancha/kancha-ui";
+import { NavigationStackScreenProps } from "react-navigation-stack";
+import { useQuery } from "@apollo/react-hooks";
+import { GET_IDENTITY } from "../../lib/graphql/queries";
+import { ActivityIndicator } from "react-native";
+import { Colors } from "../../theme";
+import hexToRgba from "hex-to-rgba";
 
 interface Props extends NavigationStackScreenProps {}
 
 const Profile: React.FC<Props> = ({ navigation }) => {
-  const did = navigation.getParam('did')
-  const isViewer = navigation.getParam('isViewer')
-  const { data, loading } = useQuery(GET_IDENTITY, { variables: { did } })
-  const identity = data && data.identity
+  const did = navigation.getParam("did");
+  const isViewer = navigation.getParam("isViewer");
+  const { data, loading } = useQuery(GET_IDENTITY, { variables: { did } });
+  const identity = data && data.identity;
   const source =
     identity && data.identity.profileImage
       ? { source: { uri: identity.profileImage } }
-      : {}
+      : {};
   return (
-    <Screen scrollEnabled background={'primary'}>
+    <Screen scrollEnabled background={"primary"}>
       {loading && (
         <Container padding flex={1}>
           <Container
             w={100}
             h={100}
             br={5}
-            background={'secondary'}
-            alignItems={'center'}
-            justifyContent={'center'}
+            background={"secondary"}
+            alignItems={"center"}
+            justifyContent={"center"}
           >
-            <ActivityIndicator size={'large'} />
+            <ActivityIndicator size={"large"} />
           </Container>
           <Container marginTop>
-            <Container h={23} br={5} background={'secondary'}></Container>
+            <Container h={23} br={5} background={"secondary"}></Container>
             <Container marginTop>
               <Container
                 h={60}
@@ -57,21 +57,21 @@ const Profile: React.FC<Props> = ({ navigation }) => {
         <Container padding flex={1}>
           <Avatar
             {...source}
-            type={'rounded'}
+            type={"rounded"}
             size={100}
             address={identity && identity.did}
-            gravatarType={'retro'}
-            backgroundColor={'white'}
+            gravatarType={"retro"}
+            backgroundColor={"white"}
           />
           <Container marginTop>
             <Text type={Constants.TextTypes.H2} bold>
               {identity && identity.shortId}
             </Text>
             {identity && identity.isManaged && (
-              <Container paddingTop flexDirection={'row'} alignItems={'center'}>
+              <Container paddingTop flexDirection={"row"} alignItems={"center"}>
                 <Container
-                  alignItems={'center'}
-                  justifyContent={'center'}
+                  alignItems={"center"}
+                  justifyContent={"center"}
                   br={10}
                   w={25}
                   h={25}
@@ -82,8 +82,8 @@ const Profile: React.FC<Props> = ({ navigation }) => {
                     size={25}
                     color={Colors.CONFIRM}
                     icon={{
-                      name: 'ios-checkmark-circle',
-                      iconFamily: 'Ionicons',
+                      name: "ios-checkmark-circle",
+                      iconFamily: "Ionicons"
                     }}
                   />
                 </Container>
@@ -99,7 +99,7 @@ const Profile: React.FC<Props> = ({ navigation }) => {
                 padding
                 br={5}
               >
-                <Text textStyle={{ fontFamily: 'menlo' }} selectable>
+                <Text textStyle={{ fontFamily: "menlo" }} selectable>
                   {identity && identity.did}
                 </Text>
               </Container>
@@ -125,7 +125,7 @@ const Profile: React.FC<Props> = ({ navigation }) => {
         </Container>
       </Container>
     </Screen>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

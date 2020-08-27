@@ -1,58 +1,58 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext } from "react";
 import {
   Container,
   Banner,
   Button,
   Indicator,
   Credential,
-  Screen,
-} from '@kancha/kancha-ui'
-import { WalletConnectContext } from '../../../providers/WalletConnect'
-import { useNavigation } from 'react-navigation-hooks'
-import { useApolloClient } from '@apollo/react-hooks'
+  Screen
+} from "@kancha/kancha-ui";
+import { WalletConnectContext } from "../../../providers/WalletConnect";
+import { useNavigation } from "react-navigation-hooks";
+import { useApolloClient } from "@apollo/react-hooks";
 
 interface RequestProps {
-  peerId: string
-  payloadId: number
-  peerMeta: any
-  message: any
+  peerId: string;
+  payloadId: number;
+  peerMeta: any;
+  message: any;
 }
 
 const AcceptCredential: React.FC<RequestProps> = ({
   peerId,
   payloadId,
   peerMeta,
-  message,
+  message
 }) => {
   const {
     walletConnectRejectCallRequest,
-    walletConnectApproveCallRequest,
-  } = useContext(WalletConnectContext)
-  const [vcs, updateVcs] = useState()
-  const navigation = useNavigation()
-  const client = useApolloClient()
+    walletConnectApproveCallRequest
+  } = useContext(WalletConnectContext);
+  const [vcs, updateVcs] = useState();
+  const navigation = useNavigation();
+  const client = useApolloClient();
 
   const approveCallRequest = async () => {
-    await message.save()
+    await message.save();
     await walletConnectApproveCallRequest(peerId, {
       id: payloadId,
-      result: 'CREDENTIAL_ACCEPTED',
-    })
-    client.reFetchObservableQueries()
-    navigation.goBack()
-  }
+      result: "CREDENTIAL_ACCEPTED"
+    });
+    client.reFetchObservableQueries();
+    navigation.goBack();
+  };
 
   const rejectCallRequest = async () => {
     await walletConnectRejectCallRequest(peerId, {
       id: payloadId,
-      error: 'CREDENTIAL_REJECTED',
-    })
-    navigation.goBack()
-  }
+      error: "CREDENTIAL_REJECTED"
+    });
+    navigation.goBack();
+  };
 
   const shortId = (did: string) => {
-    return `${did.slice(0, 15)}...${did.slice(-4)}`
-  }
+    return `${did.slice(0, 15)}...${did.slice(-4)}`;
+  };
 
   useEffect(() => {
     const credentials = message.credentials.map((vc: any) => {
@@ -61,41 +61,41 @@ const AcceptCredential: React.FC<RequestProps> = ({
         issuer: {
           did: vc.issuer.did,
           shortId: shortId(vc.issuer.did),
-          profileImage: '',
+          profileImage: ""
         },
         subject: {
           did: vc.subject.did,
           shortId: shortId(vc.subject.did),
-          profileImage: '',
-        },
-      }
-    })
+          profileImage: ""
+        }
+      };
+    });
 
-    updateVcs(credentials)
-  }, [])
+    updateVcs(credentials);
+  }, []);
 
   return (
     <Screen
       scrollEnabled
       footerComponent={
-        <Container flexDirection={'row'} padding paddingBottom={32}>
+        <Container flexDirection={"row"} padding paddingBottom={32}>
           <Container flex={1} marginRight>
             <Button
-              type={'secondary'}
+              type={"secondary"}
               fullWidth
-              buttonText={'Reject'}
+              buttonText={"Reject"}
               onPress={rejectCallRequest}
-              block={'outlined'}
+              block={"outlined"}
             />
           </Container>
           <Container flex={2}>
             <Button
-              type={'primary'}
+              type={"primary"}
               disabled={false}
               fullWidth
-              buttonText={'Accept'}
+              buttonText={"Accept"}
               onPress={approveCallRequest}
-              block={'filled'}
+              block={"filled"}
             />
           </Container>
         </Container>
@@ -106,21 +106,21 @@ const AcceptCredential: React.FC<RequestProps> = ({
           title={peerMeta.name}
           subTitle={peerMeta.url}
           issuer={{
-            did: '',
-            shortId: '',
-            profileImage: peerMeta && peerMeta.icons[0],
+            did: "",
+            shortId: "",
+            profileImage: peerMeta && peerMeta.icons[0]
           }}
         />
         <Indicator
           text={`${peerMeta && peerMeta.name} has issue you a credential`}
         />
-        <Container padding flex={1} background={'primary'}>
+        <Container padding flex={1} background={"primary"}>
           {vcs &&
             vcs.map((vc: any) => {
               return (
                 <Credential
                   shadow={1.5}
-                  background={'primary'}
+                  background={"primary"}
                   key={vc.hash}
                   exp={vc.expirationDate}
                   issuer={vc.issuer}
@@ -128,12 +128,12 @@ const AcceptCredential: React.FC<RequestProps> = ({
                   fields={vc.claims}
                   jwt={vc.raw}
                 />
-              )
+              );
             })}
         </Container>
       </Container>
     </Screen>
-  )
-}
+  );
+};
 
-export default AcceptCredential
+export default AcceptCredential;

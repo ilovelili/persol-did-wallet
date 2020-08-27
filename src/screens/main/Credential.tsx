@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Credential,
@@ -6,71 +6,71 @@ import {
   Text,
   RadioBtn,
   Constants,
-  Typings,
-} from '@kancha/kancha-ui'
-import { NavigationStackScreenProps } from 'react-navigation-stack'
-import { HeaderButtons, Item } from 'react-navigation-header-buttons'
-import { FlatList } from 'react-native'
-import { Colors } from '../../theme'
-import { ScrollView } from 'react-native-gesture-handler'
+  Typings
+} from "@kancha/kancha-ui";
+import { NavigationStackScreenProps } from "react-navigation-stack";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import { FlatList } from "react-native";
+import { Colors } from "../../theme";
+import { ScrollView } from "react-native-gesture-handler";
 
 interface CredentialStyle {
-  background: Typings.BrandPropOptions
-  shadow: number
+  background: Typings.BrandPropOptions;
+  shadow: number;
 }
 
 interface Props extends NavigationStackScreenProps {}
 
 const CredentialDetail: React.FC<Props> & { sharedElements: any } & {
-  navigationOptions: any
+  navigationOptions: any;
 } = ({ navigation }) => {
-  const credentials = navigation.getParam('credentials')
-  const initialCredential = navigation.getParam('credentialIndex', 0)
-  const [sharingMode, toggleSharingMode] = useState<boolean>(false)
-  const [selected, updateSelected] = useState<number[]>([])
+  const credentials = navigation.getParam("credentials");
+  const initialCredential = navigation.getParam("credentialIndex", 0);
+  const [sharingMode, toggleSharingMode] = useState<boolean>(false);
+  const [selected, updateSelected] = useState<number[]>([]);
 
   const isSelected = (index: number) => {
-    return selected.includes(index)
-  }
+    return selected.includes(index);
+  };
 
   const selectedStyle = (index: number): CredentialStyle => {
     return {
-      background: isSelected(index) ? 'primary' : 'primary',
-      shadow: 0,
-    }
-  }
+      background: isSelected(index) ? "primary" : "primary",
+      shadow: 0
+    };
+  };
 
   const selectCredential = (index: number) => {
     if (selected.includes(index)) {
-      updateSelected(selected.filter((item: number) => item !== index))
+      updateSelected(selected.filter((item: number) => item !== index));
     } else {
-      updateSelected(selected.concat([index]))
+      updateSelected(selected.concat([index]));
     }
-  }
+  };
 
-  const initailOffset = { x: (Device.width - 15) * initialCredential, y: 0 }
+  const initailOffset = { x: (Device.width - 15) * initialCredential, y: 0 };
 
   useEffect(() => {
-    navigation.setParams({ sharingMode, toggleSharingMode })
-  }, [sharingMode])
+    navigation.setParams({ sharingMode, toggleSharingMode });
+  }, [sharingMode]);
 
   const renderCredential = ({
     item,
-    index,
+    index
   }: {
     item: Typings.VerifiableCredential & {
-      raw: string
-      issuer: any
-      subject: any
-      claims: any[]
-      expirationDate: any
-    }
-    index: number
+      raw: string;
+      issuer: any;
+      subject: any;
+      claims: any[];
+      expirationDate: any;
+    };
+    index: number;
   }) => (
     <Container w={Device.width - 10} padding paddingRight={10}>
-      <ScrollView testID={'SCROLLVIEW'} scrollEventThrottle={16}>
+      <ScrollView testID={"SCROLLVIEW"} scrollEventThrottle={16}>
         <Credential
-          testID={'CREDENTIAL'}
+          testID={"CREDENTIAL"}
           onPress={() => sharingMode && selectCredential(index)}
           detailMode
           jwt={item.raw}
@@ -82,16 +82,16 @@ const CredentialDetail: React.FC<Props> & { sharedElements: any } & {
         />
         {sharingMode && (
           <RadioBtn
-            testID={'RADIO_BTN'}
+            testID={"RADIO_BTN"}
             selected={isSelected(index)}
             onPress={() => selectCredential(index)}
           >
-            {isSelected(index) && 'Sharing'}
+            {isSelected(index) && "Sharing"}
           </RadioBtn>
         )}
       </ScrollView>
     </Container>
-  )
+  );
 
   return (
     <Container flex={1} backgroundColor={Colors.BLACK}>
@@ -103,34 +103,34 @@ const CredentialDetail: React.FC<Props> & { sharedElements: any } & {
         </Container>
       )}
       <FlatList
-        testID={'FLATLIST'}
+        testID={"FLATLIST"}
         horizontal
         pagingEnabled
         contentOffset={initailOffset}
         showsHorizontalScrollIndicator={false}
-        snapToAlignment={'center'}
+        snapToAlignment={"center"}
         keyExtractor={(item: Typings.VerifiableCredential) => item.hash}
         data={credentials}
         renderItem={renderCredential}
       ></FlatList>
     </Container>
-  )
-}
+  );
+};
 
 CredentialDetail.navigationOptions = ({ navigation }: any) => {
-  const { sharingMode, toggleSharingMode } = navigation.state.params || {}
-  const sharingModeEnabled = navigation.getParam('sharingModeEnabled', true)
+  const { sharingMode, toggleSharingMode } = navigation.state.params || {};
+  const sharingModeEnabled = navigation.getParam("sharingModeEnabled", true);
 
   return {
-    title: 'Credential',
+    title: "Credential",
     headerStyle: {
-      backgroundColor: '#f4511e',
+      backgroundColor: "#f4511e"
     },
     headerLeft: () => (
       <HeaderButtons>
         <Item
-          testID={'DONE_BTN'}
-          title={'Done'}
+          testID={"DONE_BTN"}
+          title={"Done"}
           onPress={navigation.dismiss}
           color={Colors.WHITE}
         />
@@ -140,32 +140,32 @@ CredentialDetail.navigationOptions = ({ navigation }: any) => {
       <HeaderButtons>
         {sharingMode && sharingModeEnabled ? (
           <Item
-            testID={'CANCEL_BTN'}
-            title={'Cancel'}
+            testID={"CANCEL_BTN"}
+            title={"Cancel"}
             onPress={() => toggleSharingMode(false)}
             color={Colors.WHITE}
           />
         ) : sharingModeEnabled ? (
           <Item
-            testID={'SHARE_BTN'}
-            title={'Share'}
+            testID={"SHARE_BTN"}
+            title={"Share"}
             onPress={() => toggleSharingMode(true)}
             color={Colors.WHITE}
           />
         ) : null}
       </HeaderButtons>
-    ),
-  }
-}
+    )
+  };
+};
 
 CredentialDetail.sharedElements = (navigation: any) => {
   return navigation
-    .getParam('credentials')
+    .getParam("credentials")
     .map((vc: Typings.VerifiableCredential) => ({
       id: vc.hash,
-      animation: 'fade',
-      resize: 'clip',
-    }))
-}
+      animation: "fade",
+      resize: "clip"
+    }));
+};
 
-export default CredentialDetail
+export default CredentialDetail;

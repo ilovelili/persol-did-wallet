@@ -1,64 +1,64 @@
-import React, { useState, createContext, useEffect } from 'react'
-import WalletConnect from '@walletconnect/react-native'
+import React, { useState, createContext, useEffect } from "react";
+import WalletConnect from "@walletconnect/react-native";
 import {
   asyncStorageLoadSessions,
   asyncStorageSaveSession,
-  asyncStorageDeleteSession,
-} from '../utils/asyncStorage'
-import { IWalletConnectRequest } from '../types'
-import { EventEmitter } from 'events'
-import Debug from 'debug'
-import AppConstants from '../constants'
+  asyncStorageDeleteSession
+} from "../utils/asyncStorage";
+import { IWalletConnectRequest } from "../types";
+import { EventEmitter } from "events";
+import Debug from "debug";
+import AppConstants from "../constants";
 
-const debug = Debug('daf-provider:wallet-connect')
+const debug = Debug("daf-provider:wallet-connect");
 
-export const wcEventHub = new EventEmitter()
-export const WalletConnectContext = createContext<WalletConnectState | any>({})
+export const wcEventHub = new EventEmitter();
+export const WalletConnectContext = createContext<WalletConnectState | any>({});
 
 interface WalletConnectState {
-  loading: false
-  connectors: any[]
-  pending: any[]
-  requests: any[]
+  loading: false;
+  connectors: any[];
+  pending: any[];
+  requests: any[];
 }
 
 export const WalletConnectProvider = (props: any) => {
-  const [connectors, updateConnectors] = useState<any[]>([])
-  const [pending, updatePending] = useState<any[]>([])
-  const [requests, updateRequests] = useState<any[]>([])
-  const [peerId, updatePeerId] = useState<string | null>()
-  const [subscribed, updateSubscribed] = useState<string[]>([])
+  const [connectors, updateConnectors] = useState<any[]>([]);
+  const [pending, updatePending] = useState<any[]>([]);
+  const [requests, updateRequests] = useState<any[]>([]);
+  const [peerId, updatePeerId] = useState<string | null>();
+  const [subscribed, updateSubscribed] = useState<string[]>([]);
 
   useEffect(() => {
-    debug('Initialising wallet connect')
-    walletConnectInit()
-  }, [])
+    debug("Initialising wallet connect");
+    walletConnectInit();
+  }, []);
 
   useEffect(() => {
-    console.log('Connectors=', connectors)
+    console.log("Connectors=", connectors);
     if (connectors.length > 0) {
       connectors.forEach((connector: any) => {
         if (!subscribed.includes(connector.peerId)) {
-          debug(`Subscribing to events for peerId ${connector.peerId}`)
-          walletConnectSubscribeToEvents(connector.peerId)
+          debug(`Subscribing to events for peerId ${connector.peerId}`);
+          walletConnectSubscribeToEvents(connector.peerId);
         } else {
-          debug(`Already subscribed to events from peerId ${connector.peerId}`)
+          debug(`Already subscribed to events from peerId ${connector.peerId}`);
         }
-      })
+      });
     }
-  }, [connectors])
+  }, [connectors]);
 
   // Move to props so this can be configured
   const getNativeOptions = async () => {
     // Wait for push token
     const nativeOptions = {
       clientMeta: {
-        description: 'WalletConnect Demo App',
-        url: 'https://walletconnect.org',
-        icons: ['https://walletconnect.org/walletconnect-logo.png'],
-        name: 'WalletConnect',
-        ssl: true,
-      },
+        description: "WalletConnect Demo App",
+        url: "https://walletconnect.org",
+        icons: ["https://walletconnect.org/walletconnect-logo.png"],
+        name: "WalletConnect",
+        ssl: true
+      }
       // push: {
       //   url: "https://push.walletconnect.org",
       //   type: "fcm",
@@ -66,215 +66,215 @@ export const WalletConnectProvider = (props: any) => {
       //   peerMeta: true,
       //   language: language
       // }
-    }
+    };
 
-    return nativeOptions
-  }
+    return nativeOptions;
+  };
 
   const walletConnectInit = async () => {
     try {
-      const sessions = await asyncStorageLoadSessions()
+      const sessions = await asyncStorageLoadSessions();
       const _connectors = await Promise.all(
         Object.values(sessions).map(async session => {
-          const nativeOptions = await getNativeOptions()
-          return new WalletConnect({ session }, nativeOptions)
-        }),
-      )
+          const nativeOptions = await getNativeOptions();
+          return new WalletConnect({ session }, nativeOptions);
+        })
+      );
 
-      updateConnectors(_connectors)
+      updateConnectors(_connectors);
     } catch (error) {
       // console.error()
     }
-  }
+  };
 
   // Called from UI to estanlis a connection
   const walletConnectOnSessionRequest = async (uri: string) => {
-    debug('onSessionRequest')
-    const nativeOptions = await getNativeOptions()
-    const connector = new WalletConnect({ uri }, nativeOptions)
+    debug("onSessionRequest");
+    const nativeOptions = await getNativeOptions();
+    const connector = new WalletConnect({ uri }, nativeOptions);
 
     connector.on(
       AppConstants.events.WALLET_CONNECT.SESSION_REQUEST,
       (error: any, payload: any) => {
-        debug('Session requested')
+        debug("Session requested");
         if (error) {
-          debug(error)
-          throw error
+          debug(error);
+          throw error;
         }
-        const { peerId, peerMeta } = payload.params[0]
-        const updatedPending = pending.concat([connector])
+        const { peerId, peerMeta } = payload.params[0];
+        const updatedPending = pending.concat([connector]);
 
-        updatePending(updatedPending)
+        updatePending(updatedPending);
 
-        console.log(peerId, peerMeta)
+        console.log(peerId, peerMeta);
         // Send everythign internal event listener to handle
         wcEventHub.emit(
           AppConstants.events.WALLET_CONNECT.SESSION_REQUEST_INT,
-          { peerId, peerMeta, payload },
-        )
-      },
-    )
-  }
+          { peerId, peerMeta, payload }
+        );
+      }
+    );
+  };
 
   // Called from UI
   const walletConnectApproveSessionRequest = async (
     peerId: string,
-    response: { accounts: string[]; chainId: number },
+    response: { accounts: string[]; chainId: number }
   ) => {
-    let updatedConnectors = [...connectors]
-    let updatedPending: any[] = []
+    let updatedConnectors = [...connectors];
+    let updatedPending: any[] = [];
 
     pending.forEach((connector: WalletConnect) => {
       if (connector.peerId === peerId) {
         connector.approveSession({
           accounts: response.accounts,
-          chainId: response.chainId,
-        })
-        asyncStorageSaveSession(connector.session)
-        updatedConnectors.push(connector)
+          chainId: response.chainId
+        });
+        asyncStorageSaveSession(connector.session);
+        updatedConnectors.push(connector);
       } else {
-        updatedPending.push(connector)
+        updatedPending.push(connector);
       }
-    })
+    });
 
-    updateConnectors(updatedConnectors)
-    updatePending(updatedPending)
-    updatePeerId(peerId)
-  }
+    updateConnectors(updatedConnectors);
+    updatePending(updatedPending);
+    updatePeerId(peerId);
+  };
 
   const walletConnectRejectSessionRequest = (peerId: string) => {
     const connector = pending.filter(
-      (pendingConnector: WalletConnect) => pendingConnector.peerId === peerId,
-    )[0]
+      (pendingConnector: WalletConnect) => pendingConnector.peerId === peerId
+    )[0];
 
-    connector.rejectSession()
+    connector.rejectSession();
 
     const updatedPending = pending.filter(
-      (connector: WalletConnect) => connector.peerId !== peerId,
-    )
+      (connector: WalletConnect) => connector.peerId !== peerId
+    );
 
-    updatePending(updatedPending)
-  }
+    updatePending(updatedPending);
+  };
 
   const walletConnectKillSession = (peerId: string) => {
     const updatedConnectors = connectors.filter((connector: WalletConnect) => {
       if (connector.peerId === peerId) {
-        connector.killSession()
-        asyncStorageDeleteSession(connector.session)
-        return false
+        connector.killSession();
+        asyncStorageDeleteSession(connector.session);
+        return false;
       }
-      return true
-    })
+      return true;
+    });
 
-    updateConnectors(updatedConnectors)
-  }
+    updateConnectors(updatedConnectors);
+  };
 
   const walletConnectSubscribeToEvents = async (peerId: string) => {
-    console.log('Connecting to:', peerId)
+    console.log("Connecting to:", peerId);
 
     const connector = connectors.filter(
-      (connector: WalletConnect) => connector.peerId === peerId,
-    )[0]
+      (connector: WalletConnect) => connector.peerId === peerId
+    )[0];
 
     connector.on(
       AppConstants.events.WALLET_CONNECT.CALL_REQUEST,
       (error: any, payload: any) => {
         if (error) {
-          throw error
+          throw error;
         }
 
         const updatedconnector = connectors.filter(
-          (connector: WalletConnect) => connector.peerId === peerId,
-        )[0]
+          (connector: WalletConnect) => connector.peerId === peerId
+        )[0];
 
         let updatedRequests = requests.concat([
           {
             connector: updatedconnector,
-            payload: payload,
-          },
-        ])
+            payload: payload
+          }
+        ]);
 
-        updateRequests(updatedRequests)
+        updateRequests(updatedRequests);
 
         wcEventHub.emit(AppConstants.events.WALLET_CONNECT.CALL_REQUEST_INT, {
           peerId,
           payload,
-          peerMeta: connector.peerMeta,
-        })
-      },
-    )
+          peerMeta: connector.peerMeta
+        });
+      }
+    );
 
     connector.on(
       AppConstants.events.WALLET_CONNECT.DISCONNECT,
       (error: any) => {
         if (error) {
-          throw error
+          throw error;
         }
         const updatedConnectors = connectors.filter(
           (connector: WalletConnect) => {
             if (connector.peerId === peerId) {
-              asyncStorageDeleteSession(connector.session)
-              return false
+              asyncStorageDeleteSession(connector.session);
+              return false;
             }
-            return true
-          },
-        )
+            return true;
+          }
+        );
 
-        updateConnectors(updatedConnectors)
+        updateConnectors(updatedConnectors);
 
-        wcEventHub.emit(AppConstants.events.WALLET_CONNECT.DISCONNECT_INT)
-      },
-    )
+        wcEventHub.emit(AppConstants.events.WALLET_CONNECT.DISCONNECT_INT);
+      }
+    );
 
-    const _subscribed = [...subscribed]
-    _subscribed.push(peerId)
+    const _subscribed = [...subscribed];
+    _subscribed.push(peerId);
 
-    console.log('Updating subscribed...')
-    updateSubscribed(_subscribed)
+    console.log("Updating subscribed...");
+    updateSubscribed(_subscribed);
 
-    updatePeerId(null)
-  }
+    updatePeerId(null);
+  };
 
   const walletConnectApproveCallRequest = async (
     peerId: string,
-    response: { id: number; result: any },
+    response: { id: number; result: any }
   ) => {
     const connector = connectors.filter(
-      (connector: WalletConnect) => connector.peerId === peerId,
-    )[0]
+      (connector: WalletConnect) => connector.peerId === peerId
+    )[0];
 
-    await connector.approveRequest(response)
+    await connector.approveRequest(response);
 
     const updatedRequests = requests.filter(
-      (request: IWalletConnectRequest) => request.payload.id !== response.id,
-    )
+      (request: IWalletConnectRequest) => request.payload.id !== response.id
+    );
 
-    updateRequests(updatedRequests)
-  }
+    updateRequests(updatedRequests);
+  };
 
   const walletConnectRejectCallRequest = async (
     peerId: string,
-    response: { id: number; error: { message: string } },
+    response: { id: number; error: { message: string } }
   ) => {
     const request = requests.filter(
       (request: { connector: WalletConnect; payload: any }) =>
-        request.connector.peerId === peerId,
-    )[0]
+        request.connector.peerId === peerId
+    )[0];
 
-    await request.connector.rejectRequest(response)
+    await request.connector.rejectRequest(response);
 
     const updatedRequests = pending.filter((request: IWalletConnectRequest) => {
-      return request.payload.id !== response.id
-    })
+      return request.payload.id !== response.id;
+    });
 
-    updateRequests(updatedRequests)
-  }
+    updateRequests(updatedRequests);
+  };
 
   const state = {
     connectors,
     requests,
-    pending,
-  }
+    pending
+  };
 
   return (
     <WalletConnectContext.Provider
@@ -287,10 +287,10 @@ export const WalletConnectProvider = (props: any) => {
         walletConnectRejectSessionRequest,
         walletConnectApproveCallRequest,
         walletConnectRejectCallRequest,
-        walletConnectKillSession,
+        walletConnectKillSession
       }}
     >
       {props.children}
     </WalletConnectContext.Provider>
-  )
-}
+  );
+};

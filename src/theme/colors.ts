@@ -10,5 +10,5 @@ export default {
   WARN: '#D63A59',
   CONFIRM: '#3DCF8A',
   ACCENT: '#E89835',
-  TRANSPARENT: 'transparent',
+  TRANSPARENT: 'transparent'
 }

@@ -8,8 +8,8 @@ const options = {
   debug: false,
   resources,
   interpolation: {
-    escapeValue: false,
-  },
+    escapeValue: false
+  }
 }
 
 const languageDetector = {
@@ -24,7 +24,7 @@ const languageDetector = {
   },
   cacheUserLanguage: () => {
     // Code
-  },
+  }
 }
 
 i18n

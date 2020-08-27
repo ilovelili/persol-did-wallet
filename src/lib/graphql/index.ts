@@ -20,7 +20,7 @@ const request = async (_: any, args: any, ctx: Context) => {
   if (did !== null) {
     return {
       did,
-      __typename: 'Identity',
+      __typename: 'Identity'
     }
   }
 }
@@ -29,7 +29,7 @@ const credentialView = async (_: any, args: any, ctx: Context) => {
   const credential = args.credential
   return {
     credential,
-    __typename: 'Credential',
+    __typename: 'Credential'
   }
 }
 
@@ -39,28 +39,28 @@ const viewer = async (_: any, args: any, ctx: Context) => {
   if (did !== null) {
     return {
       did,
-      __typename: 'Identity',
+      __typename: 'Identity'
     }
   } else {
     return {
-      did: null,
+      did: null
     }
   }
 }
 
 export const resolvers = {
   Identity: {
-    isSelected,
+    isSelected
   },
   Query: {
-    viewer,
+    viewer
   },
   Mutation: {
-    setViewer,
+    setViewer
   },
   Message: {
-    viewer,
-  },
+    viewer
+  }
 }
 
 export const typeDefs = `

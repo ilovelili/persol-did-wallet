@@ -3,11 +3,11 @@
  *
  */
 
-import React, { useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { FlatList, TextInput } from 'react-native'
-import { Query, Mutation } from 'react-apollo'
-import { NavigationStackScreenProps } from 'react-navigation-stack'
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { FlatList, TextInput } from "react-native";
+import { Query, Mutation } from "react-apollo";
+import { NavigationStackScreenProps } from "react-navigation-stack";
 
 import {
   Container,
@@ -15,28 +15,28 @@ import {
   Constants,
   Screen,
   ListItem,
-  Text,
-} from '@kancha/kancha-ui'
-import { Colors } from '../../theme'
+  Text
+} from "@kancha/kancha-ui";
+import { Colors } from "../../theme";
 
 import {
   GET_MANAGED_IDENTITIES,
   IMPORT_IDENTITY,
-  CREATE_IDENTITY,
-} from '../../lib/graphql/queries'
+  CREATE_IDENTITY
+} from "../../lib/graphql/queries";
 
 interface Identity {
-  did: string
-  shortId: string
-  isSelected: boolean
-  profileImage?: string
+  did: string;
+  shortId: string;
+  isSelected: boolean;
+  profileImage?: string;
 }
 
 interface SignerProps extends NavigationStackScreenProps {}
 
 const Signer: React.FC<SignerProps> = props => {
-  const { t } = useTranslation()
-  const [seed, setSeed] = useState('')
+  const { t } = useTranslation();
+  const [seed, setSeed] = useState("");
 
   return (
     <Screen
@@ -84,13 +84,13 @@ const Signer: React.FC<SignerProps> = props => {
                 fullWidth
                 type={Constants.BrandOptions.Primary}
                 block={Constants.ButtonBlocks.Filled}
-                buttonText={t('Create New Identity')}
+                buttonText={t("Create New Identity")}
                 onPress={() => {
                   mutate({
                     variables: {
-                      type: 'rinkeby-ethr-did',
-                    },
-                  })
+                      type: "rinkeby-ethr-did"
+                    }
+                  });
                 }}
                 navButton
               />
@@ -104,11 +104,11 @@ const Signer: React.FC<SignerProps> = props => {
           {({
             data,
             loading,
-            refetch,
+            refetch
           }: {
-            data: { managedIdentities: Identity[] }
-            loading: boolean
-            refetch: () => void
+            data: { managedIdentities: Identity[] };
+            loading: boolean;
+            refetch: () => void;
           }) => (
             <FlatList
               style={{ backgroundColor: Colors.LIGHTEST_GREY, flex: 1 }}
@@ -118,9 +118,9 @@ const Signer: React.FC<SignerProps> = props => {
                   last={index === data.managedIdentities.length - 1}
                   selected={item.isSelected}
                   onPress={() => {
-                    props.navigation.push('DidViewer', {
-                      did: item.did,
-                    })
+                    props.navigation.push("DidViewer", {
+                      did: item.did
+                    });
                   }}
                 >
                   {item.shortId}
@@ -136,9 +136,9 @@ const Signer: React.FC<SignerProps> = props => {
                       borderWidth: 1,
                       padding: 15,
                       height: 100,
-                      borderColor: Colors.LIGHT_GREY,
+                      borderColor: Colors.LIGHT_GREY
                     }}
-                    placeholder={'Enter seed phrase'}
+                    placeholder={"Enter seed phrase"}
                     value={seed}
                     onChangeText={setSeed}
                   />
@@ -149,7 +149,7 @@ const Signer: React.FC<SignerProps> = props => {
         </Query>
       </Container>
     </Screen>
-  )
-}
+  );
+};
 
-export default Signer
+export default Signer;

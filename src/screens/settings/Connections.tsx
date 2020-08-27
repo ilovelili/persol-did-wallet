@@ -3,9 +3,9 @@
  *
  */
 
-import React from 'react'
-import { FlatList, Image } from 'react-native'
-import { Query, QueryResult } from 'react-apollo'
+import React from "react";
+import { FlatList, Image } from "react-native";
+import { Query, QueryResult } from "react-apollo";
 import {
   Container,
   Screen,
@@ -13,19 +13,19 @@ import {
   Text,
   Avatar,
   Constants,
-  useTheme,
-} from '@kancha/kancha-ui'
-import { NavigationStackScreenProps } from 'react-navigation-stack'
-import { GET_ALL_IDENTITIES } from '../../lib/graphql/queries'
+  useTheme
+} from "@kancha/kancha-ui";
+import { NavigationStackScreenProps } from "react-navigation-stack";
+import { GET_ALL_IDENTITIES } from "../../lib/graphql/queries";
 
 interface Result extends QueryResult {
-  data: { identities: any[] }
+  data: { identities: any[] };
 }
 
 interface Props extends NavigationStackScreenProps {}
 
 const Connections: React.FC<Props> = props => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <Screen safeArea={true}>
@@ -41,15 +41,15 @@ const Connections: React.FC<Props> = props => {
                 renderItem={({ item, index }) => {
                   const imgSrc = item.profileImage
                     ? { source: { uri: item.profileImage } }
-                    : {}
+                    : {};
                   return (
                     <ListItem
                       iconLeft={
                         <Avatar
                           {...imgSrc}
                           address={item.did}
-                          type={'circle'}
-                          gravatarType={'retro'}
+                          type={"circle"}
+                          gravatarType={"retro"}
                         />
                       }
                       // onPress={() => {
@@ -61,7 +61,7 @@ const Connections: React.FC<Props> = props => {
                     >
                       {item.shortId}
                     </ListItem>
-                  )
+                  );
                 }}
                 keyExtractor={item => item.did}
                 onRefresh={refetch}
@@ -83,7 +83,7 @@ const Connections: React.FC<Props> = props => {
         </Query>
       </Container>
     </Screen>
-  )
-}
+  );
+};
 
-export default Connections
+export default Connections;

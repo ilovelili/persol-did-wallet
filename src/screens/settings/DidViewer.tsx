@@ -1,13 +1,13 @@
-import * as React from 'react'
-import { Screen, Container, Text, Constants, Section } from '@kancha/kancha-ui'
-import { withNavigation } from 'react-navigation'
-import { NavigationStackScreenProps } from 'react-navigation-stack'
+import * as React from "react";
+import { Screen, Container, Text, Constants, Section } from "@kancha/kancha-ui";
+import { withNavigation } from "react-navigation";
+import { NavigationStackScreenProps } from "react-navigation-stack";
 
 interface DidViewerProps extends NavigationStackScreenProps {}
 
 export const DidViewer: React.FC<DidViewerProps> = props => {
-  const { navigation } = props
-  const did = navigation.getParam('did', 'Did does not exist anymore')
+  const { navigation } = props;
+  const did = navigation.getParam("did", "Did does not exist anymore");
 
   return (
     <Screen
@@ -16,14 +16,14 @@ export const DidViewer: React.FC<DidViewerProps> = props => {
       safeArea
     >
       <Container>
-        <Section title={'DID'}>
+        <Section title={"DID"}>
           <Container padding>
             <Text>{did}</Text>
           </Container>
         </Section>
       </Container>
     </Screen>
-  )
-}
+  );
+};
 
-export default withNavigation(DidViewer)
+export default withNavigation(DidViewer);

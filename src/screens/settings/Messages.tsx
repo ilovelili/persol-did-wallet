@@ -3,7 +3,7 @@
  *
  */
 
-import React from 'react'
+import React from "react";
 import {
   Container,
   Screen,
@@ -11,30 +11,30 @@ import {
   MessageItem,
   DAFMessage,
   Constants,
-  useTheme,
-} from '@kancha/kancha-ui'
-import { FlatList } from 'react-native'
-import { useQuery } from 'react-apollo'
-import { useNavigation } from 'react-navigation-hooks'
-import { Screens } from '../../navigators/screens'
-import { ALL_MESSAGES } from '../../lib/graphql/queries'
+  useTheme
+} from "@kancha/kancha-ui";
+import { FlatList } from "react-native";
+import { useQuery } from "react-apollo";
+import { useNavigation } from "react-navigation-hooks";
+import { Screens } from "../../navigators/screens";
+import { ALL_MESSAGES } from "../../lib/graphql/queries";
 
 export default () => {
-  const navigation = useNavigation()
-  const theme = useTheme()
-  const { loading, data, error, refetch } = useQuery(ALL_MESSAGES)
+  const navigation = useNavigation();
+  const theme = useTheme();
+  const { loading, data, error, refetch } = useQuery(ALL_MESSAGES);
 
   const viewProfile = (did: string) => {
     navigation.navigate(Screens.Credentials.screen, {
-      did,
-    })
-  }
+      did
+    });
+  };
 
   const viewMessage = (msg: DAFMessage) => {
     navigation.navigate(Screens.MessageDetail.screen, {
-      message: msg,
-    })
-  }
+      message: msg
+    });
+  };
 
   return (
     <Screen safeArea={true}>
@@ -55,8 +55,8 @@ export default () => {
                 nbf: item.saveDate,
                 jwt: item.raw,
                 iss: item.from,
-                sub: item.to,
-              }
+                sub: item.to
+              };
 
               return (
                 <MessageItem
@@ -65,7 +65,7 @@ export default () => {
                   viewMessage={() => viewMessage(item)}
                   viewProfile={viewProfile}
                 />
-              )
+              );
             }}
             keyExtractor={item => item.id}
             onRefresh={() => refetch()}
@@ -85,5 +85,5 @@ export default () => {
         )}
       </Container>
     </Screen>
-  )
-}
+  );
+};

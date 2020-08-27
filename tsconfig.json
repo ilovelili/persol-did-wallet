@@ -13,7 +13,7 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "Serto/*": ["./*"],
+      "PersolDIDWallet/*": ["./*"],
       "serto-graph": ["./lib/serto-graph"]
     }
   },

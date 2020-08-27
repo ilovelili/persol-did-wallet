@@ -1,8 +1,3 @@
-/**
- * Serto Mobile App
- *
- */
-
 import React from "react";
 import { FlatList, Image } from "react-native";
 import { Query, QueryResult } from "react-apollo";

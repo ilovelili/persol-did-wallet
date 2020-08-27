@@ -1,8 +1,3 @@
-/**
- * Serto Mobile App
- *
- */
-
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FlatList, TextInput } from "react-native";

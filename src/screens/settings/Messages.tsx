@@ -1,8 +1,3 @@
-/**
- * Serto Mobile App
- *
- */
-
 import React from "react";
 import {
   Container,

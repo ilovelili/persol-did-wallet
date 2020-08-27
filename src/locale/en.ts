@@ -2,7 +2,7 @@ export default {
   translation: {
     Home: 'Home',
     Settings: 'Settings',
-    'Welcome to Serto': 'Welcome to Serto',
+    'Welcome to Persol DID Wallet': 'Welcome to Persol DID Wallet',
     change: 'Toggle language',
     Configuration: 'Configuration',
     Environment: 'Environment',

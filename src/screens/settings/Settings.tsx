@@ -1,7 +1,3 @@
-/**
- * Serto Mobile App
- *
- */
 import * as React from "react";
 import { NavigationStackScreenProps } from "react-navigation-stack";
 import { useTranslation } from "react-i18next";

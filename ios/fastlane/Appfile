@@ -1,5 +1,5 @@
-app_identifier("co.serto.wallet") # The bundle identifier of your app
-apple_id("ios-certificates@uport.me") # Your Apple email address
+app_identifier("com.persoldidwallet") # The bundle identifier of your app
+apple_id("ios-certificates@persol.co.jp") # Your Apple email address
 
 itc_team_id("118263247") # App Store Connect Team ID
 team_id("82SAVLYZ3K") # Developer Portal Team ID

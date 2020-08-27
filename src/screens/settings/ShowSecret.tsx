@@ -1,7 +1,3 @@
-/**
- * Serto Mobile App
- *
- */
 import React, { useState } from "react";
 import { NavigationStackScreenProps } from "react-navigation-stack";
 import { Container, Text, Screen, Constants, Button } from "@kancha/kancha-ui";

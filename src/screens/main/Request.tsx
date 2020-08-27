@@ -16,7 +16,7 @@ import { Colors } from "../../theme";
 import { useMutation } from "react-apollo";
 import { SIGN_VP, SEND_JWT_MUTATION } from "../../lib/graphql/queries";
 import { ActivityIndicator, ActivityIndicatorBase } from "react-native";
-import navigationService from "Serto/src/navigators/navigationService";
+import navigationService from "PersolDIDWallet/src/navigators/navigationService";
 
 // tslint:disable-next-line:no-var-requires
 const bannerImage = require("../../assets/images/abstract-blurred-gradient.jpg");

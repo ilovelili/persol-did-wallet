@@ -54,7 +54,7 @@ import { Animated, Easing } from "react-native";
 
 const headerLogo = () => (
   <Image
-    source={require("../assets/images/daf-black-icon.png")}
+    source={require("../assets/images/persol-black-icon.png")}
     style={{ height: 41 }}
     resizeMode={"contain"}
   />

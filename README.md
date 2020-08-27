@@ -1,9 +1,6 @@
-[![CircleCI](https://circleci.com/gh/uport-project/daf-mobile/tree/master.svg?style=svg&circle-token=20f8c7ddb44368e4eaa3cf5219a605c431384831)](https://circleci.com/gh/uport-project/daf-mobile/tree/master)
-[![codecov](https://codecov.io/gh/uport-project/daf-mobile/branch/master/graph/badge.svg?token=ClBiPSu9Wu)](https://codecov.io/gh/uport-project/daf-mobile)
+# Persol DID Wallet
 
-# Daf mobile
-
-Daf mobile is a reference implementation for [Daf](https://github.com/uport-project/daf) framework.
+Persol DID Wallet is a wallet implementation for [Daf](https://github.com/uport-project/daf) framework.
 
 # Demo
 
@@ -41,6 +38,10 @@ $ cd ios && bundle exec pod install
 You can safely install pods directly without bundler. You will need to have cocopods installed globally on your machine.
 
 ```bash
+sudo gem install cocoapods
+```
+
+```bash
 $ yarn
 $ cd ios && pod install
 ```
@@ -54,8 +55,8 @@ yarn start
 in another terminal
 
 ```bash
-$ react-native run-ios OR
-$ react-native run-android
+$ yarn ios OR
+$ yarn android
 ```
 
 ## Environment variables
@@ -72,9 +73,9 @@ TGE_WS_URI=wss://custom.my-tgserver.com
 In code:
 
 ```jsx
-import Config from 'react-native-config'
+import Config from "react-native-config";
 
-console.log(Config.ENV) // dev
+console.log(Config.ENV); // dev
 ```
 
 To use a different env file set `ENVFILE` variable:

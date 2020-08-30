@@ -83,15 +83,15 @@ export default (props: any) => {
             />
           </Container>
           <Container flex={1} justifyContent={"flex-start"}>
-            {__DEV__ && (
-              <FabButton
+            {
+              /*__DEV__ &&*/ <FabButton
                 testID={"ENABLE_PASTE"}
                 color={inputMode ? Colors.CONFIRM : Colors.CHARCOAL}
                 onPress={() => toggleInputMode(!inputMode)}
                 size={50}
                 icon={{ name: "ios-code", iconFamily: "Ionicons" }}
               />
-            )}
+            }
           </Container>
         </Container>
       }

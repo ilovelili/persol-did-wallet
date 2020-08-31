@@ -26,6 +26,12 @@ const Settings: React.FC<NavigationStackScreenProps> = ({ navigation }) => {
         {__DEV__ && (
           <Section title={"Developer tooling"}>
             <ListItem
+              testID={"Config"}
+              onPress={() => navigation.navigate("Config")}
+            >
+              {t("Config")}
+            </ListItem>
+            <ListItem
               testID={"MESSAGES_BTN"}
               onPress={() => navigation.navigate("Messages")}
             >

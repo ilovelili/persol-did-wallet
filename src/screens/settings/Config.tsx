@@ -3,7 +3,7 @@ import { Container, Screen, ListItem, Section } from "@kancha/kancha-ui";
 import Config from "react-native-config";
 
 export default () => {
-  // todo
+  // @ts-ignore
   const configs = Object.keys(Config.getConstants());
 
   // tslint:disable-next-line:no-console

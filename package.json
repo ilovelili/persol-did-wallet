@@ -14,12 +14,13 @@
     "test:ios:debug": "detox build -c ios.sim.debug && detox test -c ios.sim.debug",
     "package-android": "mkdir -p android/app/build/jsbundle/assets/ && mkdir -p android/app/build/jsbundle/res && node node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/",
     "create-apk": "yarn package-android && cd ./android && ./gradlew assembleDebug && cd ..",
+    "link-config": "node node_modules/react-native/local-cli/cli.js link react-native-config",
     "release": "semantic-release",
     "postversion": "react-native-version --never-amend",
     "update-daf@beta": "yarn add daf-core@beta daf-did-comm@beta daf-ethr-did@beta daf-did-jwt@beta daf-selective-disclosure@beta daf-w3c@beta daf-url@beta daf-react-native-libsodium@beta daf-resolver@beta",
     "update-daf": "yarn add daf-core daf-did-comm daf-ethr-did daf-did-jwt daf-selective-disclosure daf-w3c daf-url daf-react-native-libsodium",
     "update-local-daf": "yarn add ../daf/packages/daf-core ../daf/packages/daf-data-store ../daf/packages/daf-did-comm ../daf/packages/daf-ethr-did ../daf/packages/daf-debug ../daf/packages/daf-did-jwt ../daf/packages/daf-selective-disclosure ../daf/packages/daf-trust-graph ../daf/packages/daf-w3c ../daf/packages/daf-url ../daf/packages/daf-react-native-libsodium",
-    "postinstall": "rn-nodeify --install assert,buffer,process,crypto,stream,vm --hack --yarn"
+    "postinstall": "yarn link-config && rn-nodeify --install assert,buffer,process,crypto,stream,vm --hack --yarn"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.1",

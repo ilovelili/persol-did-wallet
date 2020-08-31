@@ -2,7 +2,7 @@
 
 Persol DID Wallet is a wallet implementation for [Daf](https://github.com/uport-project/daf) framework.
 
-# Demo
+## Demo
 
 Try out Daf Mobile by using [Dafhub](https://github.com/uport-project/dafhub). This demo provides you with most of the current api flows in Daf. You will need to build Daf Mobile locally and install on your device.
 

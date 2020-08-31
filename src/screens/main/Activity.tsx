@@ -77,7 +77,7 @@ const Activity: React.FC<Props> = ({ navigation }) => {
           <Loader width={180} text={"Loading activity..."} />
         )}
         {allMessagesError ? (
-          <Text>Error</Text>
+          <Text>{allMessagesError.message}</Text>
         ) : (
           <FlatList
             ListHeaderComponent={

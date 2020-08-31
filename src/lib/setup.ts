@@ -14,7 +14,9 @@ import { createConnection } from 'typeorm'
 import merge from 'lodash.merge'
 import Debug from 'debug'
 
-Debug.enable('*')
+const debug = Debug('daf:setup')
+
+// Debug.enable('*')
 
 import * as LocalGql from './graphql'
 
@@ -37,6 +39,7 @@ export const resolvers = merge(
   LocalGql.resolvers
 )
 
+// You need to have Root access then access /data/data/{your.app.folder}/databases
 const dbConnection = createConnection({
   type: 'react-native',
   database: 'daf.sqlite',
@@ -45,6 +48,22 @@ const dbConnection = createConnection({
   logging: ['error'],
   entities: [...Daf.Entities]
 })
+
+// // this.driver.connect is not a function
+// // we need to extend a package for react-native typeorm mysql support
+// // ref 1: https://dev.to/vinipachecov/setup-typeorm-with-react-native-50c4
+// // ref 2: https://github.com/typeorm/react-native-example/blob/master/package.json
+// const dbConnection = createConnection({
+//   type: 'mysql',
+//   host: 'localhost',
+//   port: 3306,
+//   database: 'daf',
+//   synchronize: true,
+//   logging: ['error'],
+//   entities: [...Daf.Entities],
+//   username: 'daf',
+//   password: 'daf'
+// })
 
 const keyStore = new Daf.KeyStore(dbConnection)
 const identityStore = new Daf.IdentityStore('rinkeby', dbConnection)

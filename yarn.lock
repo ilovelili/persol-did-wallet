@@ -2839,13 +2839,6 @@ base-58@^0.0.1:
   resolved "https://registry.yarnpkg.com/base-58/-/base-58-0.0.1.tgz#85d3e70251075661933388f831d1eb8b8f6314e3"
   integrity sha1-hdPnAlEHVmGTM4j4MdHri49jFOM=
 
-base-x@^3.0.0:
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/base-x/-/base-x-3.0.7.tgz#1c5a7fafe8f66b4114063e8da102799d4e7c408f"
-  integrity sha512-zAKJGuQPihXW22fkrfOclUUZXM2g92z5GzlSMHxhO6r6Qj+Nm0ccaGNBzDZojzwOMkpjAv4J0fOv1U4go+a4iw==
-  dependencies:
-    safe-buffer "^5.0.1"
-
 base16@Dean177/base16-js:
   version "1.0.1"
   resolved "https://codeload.github.com/Dean177/base16-js/tar.gz/6c5e5f3b63990b580ffdc036bc672f8987d5b93d"
@@ -8724,7 +8717,6 @@ npm@^6.10.3:
     cmd-shim "^3.0.3"
     columnify "~1.5.4"
     config-chain "^1.1.12"
-    debuglog "*"
     detect-indent "~5.0.0"
     detect-newline "^2.1.0"
     dezalgo "~1.0.3"
@@ -8739,7 +8731,6 @@ npm@^6.10.3:
     has-unicode "~2.0.1"
     hosted-git-info "^2.8.8"
     iferr "^1.0.2"
-    imurmurhash "*"
     infer-owner "^1.0.4"
     inflight "~1.0.6"
     inherits "^2.0.4"
@@ -8758,14 +8749,8 @@ npm@^6.10.3:
     libnpx "^10.2.2"
     lock-verify "^2.1.0"
     lockfile "^1.0.4"
-    lodash._baseindexof "*"
     lodash._baseuniq "~4.6.0"
-    lodash._bindcallback "*"
-    lodash._cacheindexof "*"
-    lodash._createcache "*"
-    lodash._getnative "*"
     lodash.clonedeep "~4.5.0"
-    lodash.restparam "*"
     lodash.union "~4.6.0"
     lodash.uniq "~4.5.0"
     lodash.without "~4.4.0"
@@ -12192,22 +12177,6 @@ uport-base64url@3.0.2-alpha.0:
   integrity sha512-pRu0xm1K39IUzuMQEmFWdqP+H8jOzblwTXf0r9wFBCa6ZLLQsNuDeUwB2Ld+9zlBSvQQv+XEzG7cQukSCueZqw==
   dependencies:
     buffer "^5.2.1"
-
-uport-did-resolver@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/uport-did-resolver/-/uport-did-resolver-0.0.7.tgz#c13b900645f5e8259b2b551a4dcbc9af154e47cf"
-  integrity sha512-zntpAR9kXN1EQFXJeZk8P4VoDKQ26AwGwhTWUUbbU6VoX5UAJzbYrLaXBtQhRn2CFxMLHsvwXgcCZpKHui9sqg==
-  dependencies:
-    did-resolver "0.0.6"
-    uport-lite "^1.0.5"
-
-uport-lite@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/uport-lite/-/uport-lite-1.0.5.tgz#bb007f8d2bc8474da7d70dda4136e93eea1b4707"
-  integrity sha512-qj2COq8Qf+4ooDX3GeJlEzHJAmopxwOy19xRvRY6G7AN8kmMeGSDaQQ+9tYhFwcr6tVhVNjRyopeW8vbc7FCFg==
-  dependencies:
-    base-x "^3.0.0"
-    xmlhttprequest "^1.8.0"
 
 uri-js@^4.2.2:
   version "4.2.2"

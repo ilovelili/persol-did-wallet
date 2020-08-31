@@ -105,7 +105,6 @@
     "subscriptions-transport-ws": "^0.9.16",
     "supports-color": "^7.1.0",
     "typeorm": "^0.2.24",
-    "uport-did-resolver": "^0.0.7",
     "url-parse": "^1.4.7",
     "vm-browserify": "0.0.4",
     "web-did-resolver": "^1.2.0",

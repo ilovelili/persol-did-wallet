@@ -230,15 +230,15 @@ const TabNavigator = createBottomTabNavigator(
           return <Icon icon={Icons.SETTINGS} color={tintColor} />;
         }
       }
-    },
-    [Screens.ViewerProfile.screen]: {
-      screen: ProfileNavigator,
-      navigationOptions: {
-        tabBarIcon: ({ tintColor }) => {
-          return <TabAvatar tintColor={tintColor} />;
-        }
-      }
     }
+    // [Screens.ViewerProfile.screen]: {
+    //   screen: ProfileNavigator,
+    //   navigationOptions: {
+    //     tabBarIcon: ({ tintColor }) => {
+    //       return <TabAvatar tintColor={tintColor} />;
+    //     }
+    //   }
+    // }
   },
   {
     initialRouteName: "Activity",
